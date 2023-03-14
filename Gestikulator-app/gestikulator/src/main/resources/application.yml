@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/gestikulatordb
+    username: postgres
+    password: bazepodataka
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changeLogNew.xml
+    user: postgres
+    password: bazepodataka
+    url: jdbc:postgresql://localhost:5433/gestikulatordb
