@@ -28,6 +28,6 @@ public class SubLevelRequest {
     }
 
     public String toString(){
-        return subLevel.getSubLevelId() + " " + subLevel.getName() + " " + isSolved;
+        return subLevel.getId() + " " + subLevel.getName() + " " + isSolved;
     }
 }

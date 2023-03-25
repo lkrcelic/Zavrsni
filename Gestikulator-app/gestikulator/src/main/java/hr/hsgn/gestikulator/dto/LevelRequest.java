@@ -12,7 +12,7 @@ public class LevelRequest {
     private Float percentageSolved;
 
     public LevelRequest(Level level, List<Boolean> areSolved){
-        this.levelId = level.getLevelId();
+        this.levelId = level.getId();
         this.name = level.getName();
         this.subLevels = new ArrayList<>();
         int solved = 0;
