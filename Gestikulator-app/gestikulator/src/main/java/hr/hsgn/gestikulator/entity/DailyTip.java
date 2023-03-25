@@ -1,36 +1,22 @@
 package hr.hsgn.gestikulator.entity;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name="daily_tips")
+@Table(name="daily_tip")
 public class DailyTip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long dailyTipId;
+    private Long id;
     private String text;
 
-    public DailyTip() {
-    }
-
-    public DailyTip(Long dailyTipId, String text) {
-        this.dailyTipId = dailyTipId;
-        this.text = text;
-    }
-
-    public Long getDailyTipId() {
-        return dailyTipId;
-    }
-
-    public void setDailyTipId(Long dailyTipId) {
-        this.dailyTipId = dailyTipId;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
 }

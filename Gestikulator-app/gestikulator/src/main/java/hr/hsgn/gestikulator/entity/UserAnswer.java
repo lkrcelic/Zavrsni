@@ -1,5 +1,8 @@
 package hr.hsgn.gestikulator.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,13 +11,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+@Getter
+@Setter
 @Entity
-@Table(name="user_answers")
+@Table(name="user_answer")
 public class UserAnswer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userAnswerId;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name="user_id")
@@ -30,43 +35,4 @@ public class UserAnswer {
 
     private Boolean isCorrect;
 
-    public Long getUserAnswerId() {
-        return userAnswerId;
-    }
-
-    public void setUserAnswerId(Long userAnswerId) {
-        this.userAnswerId = userAnswerId;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Question getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(Question question) {
-        this.question = question;
-    }
-
-    public Gesture getGivenGesture() {
-        return givenGesture;
-    }
-
-    public void setGivenGesture(Gesture givenGesture) {
-        this.givenGesture = givenGesture;
-    }
-
-    public Boolean getCorrect() {
-        return isCorrect;
-    }
-
-    public void setCorrect(Boolean correct) {
-        isCorrect = correct;
-    }
 }

@@ -51,7 +51,7 @@ public class LevelServiceImpl implements LevelService {
             List<Boolean> areSolved = new ArrayList<>();
             List<SubLevel> subLevels = sortSubLevels(level.getSubLevels());
             for (int j = 0; j < level.getSubLevels().size(); j++)
-                areSolved.add(getIsSolved(subLevels.get(j).getSubLevelId(), userId));
+                areSolved.add(getIsSolved(subLevels.get(j).getId(), userId));
             level.setSubLevels(subLevels);
             levelRequests.add(new LevelRequest(level, areSolved));
         }
@@ -68,7 +68,7 @@ public class LevelServiceImpl implements LevelService {
             exp += answerRequest.getIsCorrect() ? 10 : 0;
         }
         Statistic statistic = new Statistic();
-        statistic.setSolved(subLevelSummaryRequest.getIsFinished());
+        statistic.setIsSolved(subLevelSummaryRequest.getIsFinished());
         statistic.setSubLevelId(subLevelSummaryRequest.getSubLevelId());
         statistic.setExperience(exp); //TODO: ADD THIS TO SubLevelSummary
         statistic.setUserId(subLevelSummaryRequest.getUserId());
@@ -113,7 +113,7 @@ public class LevelServiceImpl implements LevelService {
         SubLevel subLevel = subLevels.stream().filter(s -> s.getPrevious_id() == null).findFirst().orElseThrow(() -> new IllegalStateException("There is no starting sub level, please check database for solution to this error."));
         sortedSubLevels.add(subLevel);
         while(sortedSubLevels.size() != subLevels.size()){
-            Long previous_id = subLevel.getSubLevelId();
+            Long previous_id = subLevel.getId();
             subLevel = subLevels.stream().filter(s -> s.getPrevious_id().equals(previous_id)).findFirst().orElseThrow(() -> new IllegalStateException("There is no next sub level, please check database for solution to this error."));
             sortedSubLevels.add(subLevel);
         }

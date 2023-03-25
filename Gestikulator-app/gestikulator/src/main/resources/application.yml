@@ -6,7 +6,7 @@ spring:
     password: bazepodataka
   liquibase:
     enabled: true
-    change-log: classpath:/db/changeLogNew.xml
+    change-log: classpath:/db/changelog/db.changelog-1.0.xml
     user: postgres
     password: bazepodataka
     url: jdbc:postgresql://localhost:5433/gestikulatordb
