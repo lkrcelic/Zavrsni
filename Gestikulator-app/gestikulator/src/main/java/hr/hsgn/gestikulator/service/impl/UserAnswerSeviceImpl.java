@@ -1,7 +1,5 @@
 package hr.hsgn.gestikulator.service.impl;
 
-import javax.persistence.EntityNotFoundException;
-
 import hr.hsgn.gestikulator.dto.UserAnswerRequest;
 import hr.hsgn.gestikulator.entity.Gesture;
 import hr.hsgn.gestikulator.entity.Question;
@@ -16,6 +14,8 @@ import hr.hsgn.gestikulator.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.persistence.EntityNotFoundException;
 
 @Service
 public class UserAnswerSeviceImpl implements UserAnswerService {
@@ -33,10 +33,8 @@ public class UserAnswerSeviceImpl implements UserAnswerService {
     private final ModelMapper mapper;
 
     @Autowired
-    public UserAnswerSeviceImpl(UserAnswersRepository userAnswersRepository,
-                                UserRepository userRepository, UserService userService,
-                                QuestionService questionService, GestureService gestureService,
-                                ModelMapper mapper) {
+    public UserAnswerSeviceImpl(UserAnswersRepository userAnswersRepository, UserRepository userRepository,
+        UserService userService, QuestionService questionService, GestureService gestureService, ModelMapper mapper) {
         this.userAnswersRepository = userAnswersRepository;
         this.userRepository = userRepository;
         this.userService = userService;
@@ -61,8 +59,7 @@ public class UserAnswerSeviceImpl implements UserAnswerService {
 
             if (userAnswerRequest.getIsCorrect()) {
                 user.setExperience(user.getExperience() + 10);
-            }
-            else{
+            } else {
                 user.setHeartsRemaining(user.getHeartsRemaining() - 1);
             }
             userRepository.save(user);
@@ -72,10 +69,11 @@ public class UserAnswerSeviceImpl implements UserAnswerService {
             userAnswer.setQuestion(question);
         }
 
-        if (gesture != null){
+        if (gesture != null) {
             userAnswer.setGivenGesture(gesture);
         }
 
         return userAnswersRepository.save(userAnswer);
     }
+
 }
