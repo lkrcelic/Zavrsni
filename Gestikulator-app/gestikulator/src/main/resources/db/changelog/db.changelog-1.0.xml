@@ -1,0 +1,174 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+
+    <changeSet id="03-14-2023-17:06" author="lkrcelic">
+        <createTable tableName="gesture">
+            <column name="id" type="serial" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="text" type="varchar(200)">
+                <constraints nullable="false" />
+            </column>
+            <column name="uri" type="varchar(200)">
+                <constraints nullable="false" />
+            </column>
+            <column name="description" type="varchar(200)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <createTable tableName="user">
+            <column name="id" type="serial" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="username" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="email" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="password" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="experience" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+            <column name="hearts_remaining" type="int" defaultValue="3">
+                <constraints nullable="false" />
+            </column>
+            <column name="gesture_coins" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+            <column name="dob" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="profile_picture" type="BLOB">
+                <constraints nullable="true" />
+            </column>
+            <column name="day_streaks" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+            <column name="date_last_solved" type="date">
+                <constraints nullable="true" />
+            </column>
+        </createTable>
+
+        <createTable tableName="level">
+            <column name="id" type="serial" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <createTable tableName="sub_level">
+            <column name="id" type="serial" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false" />
+            </column>
+            <column name="previous_id" type="int">
+                <constraints nullable="true" foreignKeyName="fk_sub_level_prev" referencedTableName="sub_level" referencedColumnNames="id" />
+            </column>
+            <column name="level_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_sub_level_level" referencedTableName="level" referencedColumnNames="id" />
+            </column>
+        </createTable>
+
+        <createTable tableName="question">
+            <column name="id" type="serial" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="question_type" type="varchar(20)">
+                <constraints nullable="false" />
+            </column>
+            <column name="text" type="varchar(200)">
+                <constraints nullable="false" />
+            </column>
+            <column name="correct_gesture_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_question_cGesture" referencedTableName="gesture" referencedColumnNames="id" />
+            </column>
+            <column name="wrong_gesture_id_1" type="int">
+                <constraints nullable="false" foreignKeyName="fk_question_wGesture1" referencedTableName="gesture" referencedColumnNames="id" />
+            </column>
+            <column name="wrong_gesture_id_2" type="int">
+                <constraints nullable="false" foreignKeyName="fk_question_wGesture2" referencedTableName="gesture" referencedColumnNames="id" />
+            </column>
+            <column name="wrong_gesture_id_3" type="int">
+                <constraints nullable="false" foreignKeyName="fk_question_wGesture3" referencedTableName="gesture" referencedColumnNames="id" />
+            </column>
+            <column name="sub_level_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_question_sub_level" referencedTableName="sub_level" referencedColumnNames="id" />
+            </column>
+        </createTable>
+
+        <createTable tableName="statistics">
+            <column name="id" type="serial" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="user_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_statistic_user" referencedTableName="user" referencedColumnNames="id" />
+            </column>
+            <column name="sub_level_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_statistic_sub_level" referencedTableName="sub_level" referencedColumnNames="id" />
+            </column>
+            <column name="experience" type="int" defaultValue="0">
+                <constraints nullable="false" />
+            </column>
+            <column name="timestamp" type="timestamp">
+                <constraints nullable="false" />
+            </column>
+            <column name="is_solved" type="bool">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <createTable tableName="user_answer">
+            <column name="id" type="serial" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="user_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_user_answer_user" referencedTableName="user" referencedColumnNames="id" />
+            </column>
+            <column name="question_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_user_answer_question" referencedTableName="question" referencedColumnNames="id" />
+            </column>
+            <column name="given_gesture_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_user_answer_gesture" referencedTableName="gesture" referencedColumnNames="id" />
+            </column>
+            <column name="is_correct" type="bool">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <createTable tableName="friend">
+            <column name="id" type="serial" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="user_id_1" type="int">
+                <constraints nullable="false" foreignKeyName="fk_friends_user_1" referencedTableName="user" referencedColumnNames="id" />
+            </column>
+            <column name="user_id_2" type="int">
+                <constraints nullable="false" foreignKeyName="fk_friends_user_2" referencedTableName="user" referencedColumnNames="id" />
+            </column>
+            <column name="is_accepted" type="bool" defaultValue="false">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="03-14-2023-17:55" author="lkrcelic">
+        <createTable tableName="daily_tips">
+            <column name="daily_tip_id" type="serial" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="text" type="varchar(200)">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
