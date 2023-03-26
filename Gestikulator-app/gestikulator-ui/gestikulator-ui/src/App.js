@@ -8,18 +8,22 @@ import Profile from "./pages/profile";
 import RangList from "./pages/rangList";
 import Quiz from "./components/Quiz";
 
+const routes = [
+  { path: '/quizes', element: <Quiz /> },
+  { path: '/', element: <Home /> },
+  { path: '/about', element: <About /> },
+  { path: '/profile', element: <Profile /> },
+  { path: '/rank', element: <RangList /> },
+];
+
 const App = () => {
   return (
     <Router>
-      <NavbarController type={"MainScreen"} />
+      <NavbarController type="MainScreen" />
       <Routes>
-
-        <Route path="/quizes" element={<Quiz></Quiz>} />
-        <Route exact path="/" element={<Home></Home>} />
-        <Route path="/about" element={<About></About>} />
-        <Route path="/profile" element={<Profile></Profile>} />
-        <Route path="/rank" element={<RangList></RangList>} />
-
+        {routes.map((route) => (
+          <Route key={route.path} path={route.path} element={route.element} />
+        ))}
       </Routes>
     </Router>
   );
