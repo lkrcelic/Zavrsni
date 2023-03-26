@@ -31,5 +31,5 @@ VALUES ('guess gesture', 'Odaberite gestu za pozdrav:', 1, 2, 3, 2, 1),
        ('guess phrase', 'Koja je gesta prikazana:', 1, 3, 3, 3, 1),
        ('guess gesture', 'Odaberite gestu za gluh:', 4, 5, 6, 7, 4),
        ('guess gesture', 'Odaberite gestu za godina:', 5, 4, 6, 7, 5),
-       ('guess gesture', 'Odaberite gestu za ime:', 6, 4, 5, 7, 6),
-       ('guess gesture', 'Odaberite gestu za ti:', 7, 5, 6, 4, 7);
+       ('guess gesture', 'Odaberite gestu za ime:', 6, 4, 5, 7, 5),
+       ('guess gesture', 'Odaberite gestu za ti:', 7, 5, 6, 4, 4);
