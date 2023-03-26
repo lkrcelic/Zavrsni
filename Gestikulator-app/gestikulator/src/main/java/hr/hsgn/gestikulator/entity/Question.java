@@ -1,15 +1,20 @@
 package hr.hsgn.gestikulator.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name="question")
+@Getter
+@Setter
 public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String questionType;
+    private QuestionType questionType;
     private String text;
 
     @ManyToOne
