@@ -171,4 +171,15 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="03-26-2023-12:10" author="lkrcelic">
+        <createTable tableName="sub_level_question">
+            <column name="sub_level_id" type="bigint">
+                <constraints nullable="false" references="sub_level(id)" foreignKeyName="fk_sub_level_question_sub_level" />
+            </column>
+            <column name="question_id" type="bigint">
+                <constraints nullable="false" references="question(id)" foreignKeyName="fk_sub_level_question_question" />
+            </column>
+        </createTable>
+    </changeSet>
+
 </databaseChangeLog>

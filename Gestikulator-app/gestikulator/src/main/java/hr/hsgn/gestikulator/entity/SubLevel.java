@@ -16,8 +16,9 @@ public class SubLevel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    @Column(name="level_id")
-    private Long levelId;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private Level level;
 
     @Column(name="previous_id")
     @Nullable
