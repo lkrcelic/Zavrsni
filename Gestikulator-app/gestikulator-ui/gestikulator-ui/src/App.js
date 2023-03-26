@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavbarControler from "./components/Navbar/NavbarControler";
+import NavbarController from "./components/Navbar/NavbarController";
 
 
 import Home from "./pages/home";
@@ -11,7 +11,7 @@ import Quiz from "./components/Quiz";
 const App = () => {
   return (
     <Router>
-      <NavbarControler type={1} />
+      <NavbarController type={"MainScreen"} />
       <Routes>
 
         <Route path="/quizes" element={<Quiz></Quiz>} />
@@ -19,7 +19,6 @@ const App = () => {
         <Route path="/about" element={<About></About>} />
         <Route path="/profile" element={<Profile></Profile>} />
         <Route path="/rank" element={<RangList></RangList>} />
-        {/* {location.pathname!=="/quizes"&& <Route path="/quizes" element={<Quiz></Quiz>} /> } */}
 
       </Routes>
     </Router>
