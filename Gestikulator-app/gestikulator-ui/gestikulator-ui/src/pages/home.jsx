@@ -30,7 +30,6 @@ import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  //////////////////
   const {
     isShowing1,
     isShowing2,
@@ -43,7 +42,6 @@ const Home = () => {
     toggle5,
     toggleFunFact,
   } = useModal();
-  ////////////////
 
   let navigate = useNavigate();
   const routeChange = () => {
@@ -174,7 +172,6 @@ const Home = () => {
         />
         <Peti state={isShowing5} close={toggle5} num={4} />
 
-      
       </div>
     </div>
   );
