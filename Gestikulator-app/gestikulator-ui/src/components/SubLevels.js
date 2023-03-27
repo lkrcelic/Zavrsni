@@ -29,7 +29,7 @@ export default function SubLevels(props) {
         }}
       >
         <ListItemText
-          sx={{ textAlign: "center" }}
+          sx={{textAlign: "center"}}
           primaryTypographyProps={{
             fontStyle: "normal",
             fontWeight: "Bold",
@@ -46,7 +46,7 @@ export default function SubLevels(props) {
   ));
   return (
     <>
-      <h1 style={{ marginLeft: "30px" }}>Odaberi podrazinu</h1>
+      <h1 style={{marginLeft: "30px"}}>Odaberi podrazinu</h1>
 
       <Box
         sx={{

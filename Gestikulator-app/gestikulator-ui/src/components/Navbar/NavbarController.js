@@ -2,12 +2,12 @@ import NavbarLevel from "./NavbarLevel";
 import Navbar from "./Navbar";
 
 const NavbarController = ({type}) => {
-  if(type === "MainScreen") {
-    return <Navbar />;
+  if (type === "MainScreen") {
+    return <Navbar/>;
   }
 
   if (type === "Level") {
-    return <NavbarLevel />;
+    return <NavbarLevel/>;
   }
 
   return null;

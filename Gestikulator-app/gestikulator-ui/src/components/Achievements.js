@@ -5,15 +5,14 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { Typography } from "@mui/material";
-import { color } from "@mui/system";
+import {Typography} from "@mui/material";
 
 export default function Achievements(props) {
   const listItems = props.achievements.map((achievement) => (
     <ListItem>
       <ListItemButton
         disableTouchRipple
-        selectedItemStyle={{ backgroundColor: "white" }}
+        selectedItemStyle={{backgroundColor: "white"}}
         sx={{
           backgroundColor: "white",
           borderRadius: "16px",
@@ -29,7 +28,7 @@ export default function Achievements(props) {
           }}
           primary={achievement.name}
         />
-        <ListItemIcon sx={{ color: "#121212" }}>
+        <ListItemIcon sx={{color: "#121212"}}>
           {achievement.icon}
         </ListItemIcon>
       </ListItemButton>
@@ -40,7 +39,7 @@ export default function Achievements(props) {
       <Typography
         align="left"
         variant="h4"
-        sx={{ fontFamily: "inherit", marginLeft: "20px", marginTop: "15px" }}
+        sx={{fontFamily: "inherit", marginLeft: "20px", marginTop: "15px"}}
       >
         Izazovi
       </Typography>
@@ -58,7 +57,7 @@ export default function Achievements(props) {
         }}
       >
         <nav
-          style={{ position: "absolute", height: "90%", width: "100%" }}
+          style={{position: "absolute", height: "90%", width: "100%"}}
           aria-label="solved"
         >
           <List>{listItems}</List>

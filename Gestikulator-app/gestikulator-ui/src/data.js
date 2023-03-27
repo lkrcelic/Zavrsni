@@ -44,7 +44,7 @@ const data = [
     correctAnswer: "tocno",
     gestureName: "ime",
   },
-  
+
 ];
 
 export default data;

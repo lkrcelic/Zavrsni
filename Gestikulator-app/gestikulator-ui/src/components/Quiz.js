@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
+import {useContext, useState} from "react";
 import Question from "./Question";
-import { QuizContext } from "../contexts/quiz";
+import {QuizContext} from "../contexts/quiz";
 import ReactTooltip from "react-tooltip";
-import { ImFire, ImBell } from "react-icons/im";
-import { AiFillCloseCircle } from "react-icons/ai";
+import {ImBell, ImFire} from "react-icons/im";
+import {AiFillCloseCircle} from "react-icons/ai";
 import ExitLevel from "./ExitLevel";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const Quiz = () => {
   const [quizState, dispatch] = useContext(QuizContext);
@@ -17,6 +17,7 @@ const Quiz = () => {
   }
 
   const navigate = useNavigate();
+
   function endQuiz() {
     console.log("tu sam");
     // poslati api call na backend da je user zavrsio
@@ -28,8 +29,8 @@ const Quiz = () => {
   return (
     <>
       <div className="App">
-        <AiFillCloseCircle onClick={toggle} size={40} />
-        <ExitLevel isShowing={isShowing} hide={toggle} />
+        <AiFillCloseCircle onClick={toggle} size={40}/>
+        <ExitLevel isShowing={isShowing} hide={toggle}/>
       </div>
       <div className="quiz">
         {quizState.showResults && (
@@ -55,7 +56,7 @@ const Quiz = () => {
           <>
             <div className="question-info">
               <button className="question_icon_first" data-for="HintTip">
-                <ImBell />
+                <ImBell/>
               </button>
               <ReactTooltip id="HintTip" place="top" effect="solid">
                 Pola-Pola!
@@ -74,15 +75,15 @@ const Quiz = () => {
                 data-tip
                 data-for="streakTip"
               >
-                <ImFire />
+                <ImFire/>
               </button>
             </div>
             <div className="answers">
-              <Question />
+              <Question/>
             </div>
             {quizState.currentAnswer && (
               <div
-                onClick={() => dispatch({ type: "NEXT_QUESTION" })}
+                onClick={() => dispatch({type: "NEXT_QUESTION"})}
                 className="next-button"
               >
                 Sljedeće pitanje

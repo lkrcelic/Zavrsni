@@ -1,11 +1,9 @@
-import React from 'react';
-import { Holistic } from "@mediapipe/holistic"
+import React, {useEffect, useRef} from 'react';
 import * as holistic_utils from "@mediapipe/holistic"
+import {Holistic} from "@mediapipe/holistic"
 import * as cam from "@mediapipe/camera_utils"
 import Webcam from "react-webcam"
-import { useRef, useEffect } from "react"
 import axios from 'axios'
-import CountdownApp from "./Countdown/Countdown"
 
 
 async function sendFramesToAPI(gestureName, results) {
@@ -18,7 +16,7 @@ async function sendFramesToAPI(gestureName, results) {
     },
     {
       headers:
-        { 'Content-Type': 'application/json' }
+        {'Content-Type': 'application/json'}
     }
   ).then(res => res.data)
     .catch(err => console.error(err))
@@ -33,13 +31,13 @@ const INITIAL_COUNT = 3
 
 
 const AnswerCamera = (correctAnswerClass,
-  wrongAnswerClass,
-  disabledClass,
-  letterMapping,
-  answerText,
-  index,
-  onSelectAnswer,
-  gestureName,
+                      wrongAnswerClass,
+                      disabledClass,
+                      letterMapping,
+                      answerText,
+                      index,
+                      onSelectAnswer,
+                      gestureName,
 ) => {
   let response = null;
 
@@ -94,19 +92,19 @@ const AnswerCamera = (correctAnswerClass,
       canvasElement.height
     );
     window.drawConnectors(canvasCtx, results.poseLandmarks, holistic_utils.POSE_CONNECTIONS,
-      { color: '#00FF00', lineWidth: 4 });
+      {color: '#00FF00', lineWidth: 4});
     window.drawLandmarks(canvasCtx, results.poseLandmarks,
-      { color: '#FF0000', lineWidth: 2 });
+      {color: '#FF0000', lineWidth: 2});
     window.drawConnectors(canvasCtx, results.faceLandmarks, holistic_utils.FACEMESH_TESSELATION,
-      { color: '#C0C0C070', lineWidth: 1 });
+      {color: '#C0C0C070', lineWidth: 1});
     window.drawConnectors(canvasCtx, results.leftHandLandmarks, holistic_utils.HAND_CONNECTIONS,
-      { color: '#CC0000', lineWidth: 5 });
+      {color: '#CC0000', lineWidth: 5});
     window.drawLandmarks(canvasCtx, results.leftHandLandmarks,
-      { color: '#00FF00', lineWidth: 2 });
+      {color: '#00FF00', lineWidth: 2});
     window.drawConnectors(canvasCtx, results.rightHandLandmarks, holistic_utils.HAND_CONNECTIONS,
-      { color: '#00CC00', lineWidth: 5 });
+      {color: '#00CC00', lineWidth: 5});
     window.drawLandmarks(canvasCtx, results.rightHandLandmarks,
-      { color: '#FF0000', lineWidth: 2 });
+      {color: '#FF0000', lineWidth: 2});
     canvasCtx.restore();
   }
 
@@ -132,7 +130,7 @@ const AnswerCamera = (correctAnswerClass,
     ) {
       camera = new cam.Camera(webcamRef.current.video, {
         onFrame: async () => {
-          await holistic.send({ image: webcamRef.current.video });
+          await holistic.send({image: webcamRef.current.video});
         },
         width: 640,
         height: 480,
@@ -159,7 +157,7 @@ const AnswerCamera = (correctAnswerClass,
   };
 
   const handleDataAvailable = React.useCallback(
-    ({ data }) => {
+    ({data}) => {
       if (data.size > 0) {
         setRecordedChunks((prev) => prev.concat(data));
       }
@@ -247,7 +245,7 @@ const AnswerCamera = (correctAnswerClass,
         )}
       </div>
 
-      <div >
+      <div>
         <button className="skip-button" onClick={handleSkipClick}>Ne mogu sada</button>
       </div>
 

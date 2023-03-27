@@ -45,7 +45,7 @@ const Prvi = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <ArrowUpwardRoundedIcon fontSize="large" />
+          <ArrowUpwardRoundedIcon fontSize="large"/>
           <span style={spanStyle}> {props.num}/4</span>
           <Typography
             id="modal-modal-title"
@@ -57,11 +57,11 @@ const Prvi = (props) => {
           </Typography>
           <Typography
             id="modal-modal-description"
-            sx={({ marginTop: 2 }, font_text)}
+            sx={({marginTop: 2}, font_text)}
           >
             Ovdje se odabire poglavlje koje želiš vježbati.
           </Typography>
-          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <div style={{display: "flex", justifyContent: "flex-end"}}>
             <Button onClick={props.close} sx={modal_button}>
               Zatvori
             </Button>

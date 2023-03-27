@@ -44,7 +44,7 @@ const Drugi = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <ArrowUpwardRoundedIcon fontSize="large" />
+          <ArrowUpwardRoundedIcon fontSize="large"/>
           <span style={spanStyle}> {props.num}/4</span>
           <Typography
             id="modal-modal-title"
@@ -54,10 +54,10 @@ const Drugi = (props) => {
           >
             Odaberi podrazinu
           </Typography>
-          <Typography id="modal-modal-description" sx={({ mt: 2 }, font_text)}>
+          <Typography id="modal-modal-description" sx={({mt: 2}, font_text)}>
             Ovjde biraš podrazine koje zeliš zaigrati.
           </Typography>
-          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <div style={{display: "flex", justifyContent: "flex-end"}}>
             <Button onClick={props.close} sx={modal_button}>
               Zatvori
             </Button>

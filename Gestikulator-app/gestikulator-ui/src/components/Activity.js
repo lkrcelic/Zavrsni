@@ -5,7 +5,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { Typography } from "@mui/material";
+import {Typography} from "@mui/material";
 
 export default function Activity(props) {
   const listItems = props.activities.map((activity) => (
@@ -27,7 +27,7 @@ export default function Activity(props) {
           }}
           primary={activity.name}
         />
-        <ListItemIcon sx={{ color: "#121212" }}>{activity.icon}</ListItemIcon>
+        <ListItemIcon sx={{color: "#121212"}}>{activity.icon}</ListItemIcon>
       </ListItemButton>
     </ListItem>
   ));
@@ -36,7 +36,7 @@ export default function Activity(props) {
       <Typography
         align="left"
         variant="h4"
-        sx={{ fontFamily: "inherit", marginLeft: "20px", marginTop: "10px" }}
+        sx={{fontFamily: "inherit", marginLeft: "20px", marginTop: "10px"}}
       >
         Aktivnost
       </Typography>
@@ -54,7 +54,7 @@ export default function Activity(props) {
         }}
       >
         <nav
-          style={{ position: "absolute", height: "90%", width: "100%" }}
+          style={{position: "absolute", height: "90%", width: "100%"}}
           aria-label="solved"
         >
           <List>{listItems}</List>

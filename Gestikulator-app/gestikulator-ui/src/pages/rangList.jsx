@@ -1,10 +1,10 @@
 import React from 'react';
 
-const RangList = () => { 
-    return (
+const RangList = () => {
+  return (
     <div>
-        <h1>RANGLIST</h1>
-      </div>
-          ) 
+      <h1>RANGLIST</h1>
+    </div>
+  )
 }
 export default RangList;

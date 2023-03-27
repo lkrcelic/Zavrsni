@@ -4,17 +4,17 @@ const activity = [
   {
     id: 1,
     name: "Marko je odigrao 3 levela savršeno za redom",
-    icon: <FavoriteIcon />,
+    icon: <FavoriteIcon/>,
   },
   {
     id: 2,
     name: "Petar ima 10 dana dnevni niz",
-    icon: <FavoriteIcon />,
+    icon: <FavoriteIcon/>,
   },
   {
     id: 3,
     name: "Ivan ukupno ima 10 prijatelja",
-    icon: <FavoriteIcon />,
+    icon: <FavoriteIcon/>,
   },
 
 ];

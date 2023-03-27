@@ -4,14 +4,14 @@ import AnswerText from "./AnswerText";
 import AnswerCamera from "./AnswerCamera.js";
 
 const Answer = ({
-  answerText,
-  QuestionAnswerType,
-  index,
-  onSelectAnswer,
-  currentAnswer,
-  correctAnswer,
-  gestureName,
-}) => {
+                  answerText,
+                  QuestionAnswerType,
+                  index,
+                  onSelectAnswer,
+                  currentAnswer,
+                  correctAnswer,
+                  gestureName,
+                }) => {
   const letterMapping = ["A", "B", "C", "D"]; // todo dodati u const
   const isCorrectAnswer = currentAnswer && answerText === correctAnswer;
   const isWrongAnswer =

@@ -1,11 +1,9 @@
 import Levels from "../components/Levels";
 import SubLevels from "../components/SubLevels";
-import Dictionary from "../components/Dictionary";
 import FunFact from "../components/FunFact";
 import Prvi from "../components/Modals/Prvi.js";
 import Drugi from "../components/Modals/Drugi.js";
 import Treci from "../components/Modals/Treci.js";
-import Cetvrti from "../components/Modals/Cetvrti.js";
 import Peti from "../components/Modals/Peti.js";
 
 import allLevels from "../components/levelConsts";
@@ -23,11 +21,11 @@ import Avatar from "@mui/material/Avatar";
 import Achievements from "../components/Achievements.js";
 import Activities from "../components/Activity.js";
 
-import React, { useState } from "react";
-import { AiFillFire } from "react-icons/ai";
+import React, {useState} from "react";
+import {AiFillFire} from "react-icons/ai";
 import Badge from "@mui/material/Badge";
 import Button from "@mui/material/Button";
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const Home = () => {
   const {
@@ -68,14 +66,14 @@ const Home = () => {
       <div class="info">
         <div class="user">
           <CardHeader
-            sx={{ padding: "10px", paddingLeft: "20px" }}
+            sx={{padding: "10px", paddingLeft: "20px"}}
             avatar={
               <Badge
-                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+                anchorOrigin={{horizontal: "right", vertical: "bottom"}}
                 badgeContent={
-                  <div style={{ position: "relative" }}>
-                    <AiFillFire color="red" fontSize="2em" />
-                    <span style={{ position: "absolute", color: "red" }}>
+                  <div style={{position: "relative"}}>
+                    <AiFillFire color="red" fontSize="2em"/>
+                    <span style={{position: "absolute", color: "red"}}>
                       2
                     </span>
                   </div>
@@ -83,7 +81,7 @@ const Home = () => {
               >
                 <Avatar
                   alt="Nikola Tomažin"
-                  sx={{ width: 90, height: 90 }}
+                  sx={{width: 90, height: 90}}
                   src="../assets/test.jpg"
                 />
               </Badge>
@@ -97,16 +95,16 @@ const Home = () => {
           />
         </div>
         <div class="izazovi">
-          <Achievements achievements={achievements} />
+          <Achievements achievements={achievements}/>
         </div>
 
         <div class="aktivnost">
-          <Activities activities={activities} />
+          <Activities activities={activities}/>
         </div>
 
         <Button class="settings" disableTouchRipple>
-          <SettingsIcon fontSize="large" sx={{ margin: "auto" }} />
-          <span style={{ fontSize: "24px", margin: "5px" }}>Postavke</span>
+          <SettingsIcon fontSize="large" sx={{margin: "auto"}}/>
+          <span style={{fontSize: "24px", margin: "5px"}}>Postavke</span>
         </Button>
       </div>
 
@@ -135,22 +133,22 @@ const Home = () => {
       </div>
 
       <div class="zanimljivost">
-      <button 
-      className="button-default" 
-      onClick={toggleFunFact}
-      style={{ position: "absolute", top: "35px", right: "150px" }}
-      >Zanimljivost Dana <TipsAndUpdatesIcon />
-      </button>
-          <FunFact
-            isShowing={isShowingFunFact}
-            hide={toggleFunFact}
-          />
         <button
-          style={{ position: "absolute", top: "35px", right: "15px" }}
+          className="button-default"
+          onClick={toggleFunFact}
+          style={{position: "absolute", top: "35px", right: "150px"}}
+        >Zanimljivost Dana <TipsAndUpdatesIcon/>
+        </button>
+        <FunFact
+          isShowing={isShowingFunFact}
+          hide={toggleFunFact}
+        />
+        <button
+          style={{position: "absolute", top: "35px", right: "15px"}}
           className="button-default"
           onClick={toggle1}
         >
-          Pomoć <TipsAndUpdatesIcon />
+          Pomoć <TipsAndUpdatesIcon/>
         </button>
         <Prvi
           state={isShowing1}
@@ -170,7 +168,7 @@ const Home = () => {
           close={toggle3}
           num={3}
         />
-        <Peti state={isShowing5} close={toggle5} num={4} />
+        <Peti state={isShowing5} close={toggle5} num={4}/>
 
       </div>
     </div>

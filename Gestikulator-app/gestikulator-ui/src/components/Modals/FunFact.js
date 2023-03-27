@@ -26,14 +26,14 @@ const FunFact = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <ArrowUpwardRoundedIcon fontSize="large" />
+          <ArrowUpwardRoundedIcon fontSize="large"/>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             Odaberi razinu
           </Typography>
-          <Typography component="h6" />
+          <Typography component="h6"/>
           {props.num}/5
-          <Typography />
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+          <Typography/>
+          <Typography id="modal-modal-description" sx={{mt: 2}}>
             Ovdje se odabire poglavlje koje želiš vježbati.
             {props.num}
           </Typography>
