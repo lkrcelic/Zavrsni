@@ -28,7 +28,7 @@ const QuestionVideo = (currentQuestion, quizState, dispatch) => {
             key={index}
             index={index}
             onSelectAnswer={(answerText) =>
-              dispatch({ type: "SELECT_ANSWER", payload: answerText })
+              dispatch({type: "SELECT_ANSWER", payload: answerText})
             }
           />
         ))}

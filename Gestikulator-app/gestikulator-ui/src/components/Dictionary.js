@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TextField from "@mui/material/TextField";
 
 var currentVideo = "Gluh_1.MP4"
 
-const Dictionary = ({ isShowing, hide, name, urlVideo }) => isShowing ? ReactDOM.createPortal(
+const Dictionary = ({isShowing, hide, name, urlVideo}) => isShowing ? ReactDOM.createPortal(
   <React.Fragment>
-    <div className="modal-overlay" />
+    <div className="modal-overlay"/>
     <div className="modal-wrapper" aria-modal aria-hidden tabIndex={-1} role="dialog">
       <div className="modal">
         <div className="modal-header">
@@ -24,7 +23,7 @@ const Dictionary = ({ isShowing, hide, name, urlVideo }) => isShowing ? ReactDOM
         {/*  />*/}
         {/*</div>*/}
         <video width="80%" loop autoPlay>
-          <source src={require('../assets/' + currentVideo)} type="video/ogg" />
+          <source src={require('../assets/' + currentVideo)} type="video/ogg"/>
           Your browser does not support the video tag.
         </video>
       </div>

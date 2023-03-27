@@ -67,7 +67,7 @@ export default function Levels(props) {
         }}
       >
         <ListItemText
-          sx={{ textAlign: "center" }}
+          sx={{textAlign: "center"}}
           primaryTypographyProps={{
             fontStyle: "normal",
             fontWeight: "Bold",
@@ -84,7 +84,7 @@ export default function Levels(props) {
   ));
   return (
     <>
-      <h1 style={{ marginLeft: "30px" }}>Odaberi razinu</h1>
+      <h1 style={{marginLeft: "30px"}}>Odaberi razinu</h1>
       <Box
         sx={{
           width: "100%",

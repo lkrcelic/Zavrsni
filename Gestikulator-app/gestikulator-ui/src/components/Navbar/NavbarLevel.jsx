@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from "react";
-import { Button, Popover, Paper, MenuList, MenuItem } from "@material-ui/core";
-import { FaHamburger } from "react-icons/fa";
+import {useEffect, useRef, useState} from "react";
+import {Button, MenuItem, MenuList, Paper, Popover} from "@material-ui/core";
+import {FaHamburger} from "react-icons/fa";
 
 import "./_navbar.css";
 
@@ -17,6 +17,7 @@ const NavbarLevel = () => {
   function handleMenuClick() {
     setAnchorEl(menuButtonRef.current);
   }
+
   function handleMenuClose() {
     setAnchorEl(null);
   }
@@ -46,7 +47,7 @@ const NavbarLevel = () => {
             ref={menuButtonRef}
             onClick={handleMenuClick}
           >
-            <FaHamburger className="navbar__menu__icon" />
+            <FaHamburger className="navbar__menu__icon"/>
           </Button>
           <Popover
             open={!!anchorEl}
@@ -72,7 +73,7 @@ const NavbarLevel = () => {
         </div>
       ) : (
         <div className="navbar__links">
-          
+
           <Button
             disableTouchRipple
             class="navbar__links__logout navbar__links"

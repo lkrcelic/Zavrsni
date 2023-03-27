@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useEffect, useRef, useState} from 'react'
 import './styles.css'
 
 const STATUS = {
@@ -71,6 +71,7 @@ function useInterval(callback, delay) {
     function tick() {
       savedCallback.current()
     }
+
     if (delay !== null) {
       let id = setInterval(tick, delay)
       return () => clearInterval(id)

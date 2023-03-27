@@ -15,9 +15,9 @@ const AnswerVideo = (
       onClick={() => onSelectAnswer(answerText)}
     >
       <div className="answer-video-letter">{letterMapping[index]}</div>
-      <div className="video" >
+      <div className="video">
         <video width="auto" height="180px" loop autoPlay isMuted={true}>
-          <source src={require("../assets/" + answerText)} type="video/ogg" />
+          <source src={require("../assets/" + answerText)} type="video/ogg"/>
           Your browser does not support the video tag.
         </video>
       </div>

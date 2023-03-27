@@ -1,5 +1,5 @@
-import { useContext } from "react";
-import { QuizContext } from "../contexts/quiz";
+import {useContext} from "react";
+import {QuizContext} from "../contexts/quiz";
 import QuestionVideo from "./QuestionVideo";
 import QuestionText from "./QuestionText";
 import QuestionCamera from "./QuestionCamera";

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState} from "react";
 
 //toggle -> riječnik HZJ, uklonjeno
 //toggle1 -> zanimljivosti
@@ -15,9 +15,11 @@ const useModal = () => {
   function toggle1() {
     setIsShowing1(!isShowing1);
   }
+
   function toggle2() {
     setIsShowing2(!isShowing2);
   }
+
   function toggle3() {
     setIsShowing3(!isShowing3);
   }

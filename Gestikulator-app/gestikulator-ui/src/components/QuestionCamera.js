@@ -6,15 +6,15 @@ const QuestionCamera = (currentQuestion, quizState, dispatch) => {
     <div>
       <div className="question">{currentQuestion.question}</div>
       <div className="answers">
-          <Answer
-            answerText={quizState.answers}
-            QuestionAnswerType={currentQuestion.QuestionAnswerType}
-            correctAnswerClass={currentQuestion.question}
-            gestureName={currentQuestion.gestureName}
-            onSelectAnswer={(answerText) =>
-              dispatch({ type: "SELECT_ANSWER", payload: answerText })
-            }
-          />
+        <Answer
+          answerText={quizState.answers}
+          QuestionAnswerType={currentQuestion.QuestionAnswerType}
+          correctAnswerClass={currentQuestion.question}
+          gestureName={currentQuestion.gestureName}
+          onSelectAnswer={(answerText) =>
+            dispatch({type: "SELECT_ANSWER", payload: answerText})
+          }
+        />
       </div>
     </div>
   );

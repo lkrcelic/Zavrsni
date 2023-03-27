@@ -1,6 +1,6 @@
-import { useState, useRef, useEffect } from "react";
-import { Button, Popover, Paper, MenuList, MenuItem } from "@material-ui/core";
-import { FaHamburger } from "react-icons/fa";
+import {useEffect, useRef, useState} from "react";
+import {Button, MenuItem, MenuList, Paper, Popover} from "@material-ui/core";
+import {FaHamburger} from "react-icons/fa";
 import ComboBox from "../ComboBox";
 
 import "./_navbar.css";
@@ -18,6 +18,7 @@ const Navbar = () => {
   function handleMenuClick() {
     setAnchorEl(menuButtonRef.current);
   }
+
   function handleMenuClose() {
     setAnchorEl(null);
   }
@@ -47,7 +48,7 @@ const Navbar = () => {
             ref={menuButtonRef}
             onClick={handleMenuClick}
           >
-            <FaHamburger className="navbar__menu__icon" />
+            <FaHamburger className="navbar__menu__icon"/>
           </Button>
           <Popover
             open={!!anchorEl}
@@ -86,7 +87,7 @@ const Navbar = () => {
             Moj profil
           </Button>
 
-          <ComboBox />
+          <ComboBox/>
 
           <Button
             disableTouchRipple

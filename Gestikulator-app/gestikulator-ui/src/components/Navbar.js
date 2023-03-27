@@ -1,5 +1,5 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
+import {styled} from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -9,7 +9,6 @@ import InputBase from "@mui/material/InputBase";
 import Badge from "@mui/material/Badge";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
@@ -17,7 +16,7 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import Button from "@mui/material/Button";
 import ComboBox from "./ComboBox";
 
-const Search = styled("div")(({ theme }) => ({
+const Search = styled("div")(({theme}) => ({
   //   position: 'relative',
   //   borderRadius: theme.shape.borderRadius,
   //   backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -34,7 +33,7 @@ const Search = styled("div")(({ theme }) => ({
   //
 }));
 
-const SearchIconWrapper = styled("div")(({ theme }) => ({
+const SearchIconWrapper = styled("div")(({theme}) => ({
   padding: theme.spacing(0, 2),
   height: "100%",
   position: "absolute",
@@ -44,7 +43,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
   justifyContent: "center",
 }));
 
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
+const StyledInputBase = styled(InputBase)(({theme}) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
@@ -104,7 +103,7 @@ export default function PrimarySearchAppBar() {
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
-            <MailIcon />
+            <MailIcon/>
           </Badge>
         </IconButton>
         <p>Messages</p>
@@ -123,7 +122,7 @@ export default function PrimarySearchAppBar() {
           aria-haspopup="true"
           color="inherit"
         >
-          <AccountCircle />
+          <AccountCircle/>
         </IconButton>
         <p>Profile</p>
       </MenuItem>
@@ -139,31 +138,31 @@ export default function PrimarySearchAppBar() {
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            sx={{ mr: 2 }}
+            sx={{mr: 2}}
           ></IconButton>
           <Typography
             variant="h6"
             noWrap
             component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
+            sx={{display: {xs: "none", sm: "block"}}}
           >
             GESTIKULATOR
           </Typography>
-          <div style={{ display: "flex", justifyContent: "right" }}>
-            <ComboBox />
+          <div style={{display: "flex", justifyContent: "right"}}>
+            <ComboBox/>
 
             <Search>
               <SearchIconWrapper>
-                <SearchIcon />
+                <SearchIcon/>
               </SearchIconWrapper>
               <StyledInputBase
                 placeholder="Pretraži rječnik"
-                inputProps={{ "aria-label": "search" }}
+                inputProps={{"aria-label": "search"}}
               />
             </Search>
           </div>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
+          <Box sx={{flexGrow: 1}}/>
+          <Box sx={{display: {xs: "none", md: "flex"}}}>
             <IconButton
               size="large"
               edge="end"
@@ -174,7 +173,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             ></IconButton>
           </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
+          <Box sx={{display: {xs: "flex", md: "none"}}}>
             <IconButton
               size="large"
               aria-label="show more"
@@ -183,7 +182,7 @@ export default function PrimarySearchAppBar() {
               onClick={handleMobileMenuOpen}
               color="inherit"
             >
-              <MoreIcon />
+              <MoreIcon/>
             </IconButton>
           </Box>
         </Toolbar>

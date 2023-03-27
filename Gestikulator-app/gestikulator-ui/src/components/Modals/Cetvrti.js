@@ -44,7 +44,7 @@ const Cetvrti = (props) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <ArrowUpwardRoundedIcon fontSize="large" />
+          <ArrowUpwardRoundedIcon fontSize="large"/>
           <span style={spanStyle}> {props.num}/5</span>
           <Typography
             id="modal-modal-title"
@@ -54,10 +54,10 @@ const Cetvrti = (props) => {
           >
             Moj profil
           </Typography>
-          <Typography id="modal-modal-description" sx={({ mt: 2 }, font_text)}>
+          <Typography id="modal-modal-description" sx={({mt: 2}, font_text)}>
             Ovdje se nalazi tvoj profil sa dnevnim aktivnostima i izazovima.
           </Typography>
-          <div style={{ display: "flex", justifyContent: "flex-end" }}>
+          <div style={{display: "flex", justifyContent: "flex-end"}}>
             <Button onClick={props.close} sx={modal_button}>
               Zatvori
             </Button>
