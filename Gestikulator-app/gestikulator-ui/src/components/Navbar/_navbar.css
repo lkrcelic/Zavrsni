@@ -2,19 +2,19 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #fb8c00;
+    background-color: #4CAF50;
     height: 80px;
 }
 
 .navbar__logo {
-    color: #fb8c00;
+    color: #4CAF50;
     font-size: 24px;
     margin-right: 18px;
 }
 
 .navbar__title {
     background-color: white;
-    color: #fb8c00;
+    color: #4CAF50;
     font-size: 38px;
     font-weight: 900;
     padding-left: 30px;
@@ -40,11 +40,11 @@
 .navbar__links__button {
     margin-right: 40px;
     margin-left: 0;
-    background-color: #fb8c00;
+    background-color: #4CAF50;
 }
 
 .navbar__links__logout {
-    background-color: #ffdd71;
+    background-color: #FFC107;
     border-radius: 25px;
     margin-left: 40px;
     margin-right: 100px;
@@ -58,10 +58,10 @@
 }
 
 .navbar__menu__icon {
-    color: #ffdd71;
+    color: #FFC107;
     font-size: 24px;
 }
 
 .navbar__menu__popover {
-    background-color: #ffdd71;
+    background-color: #FFC107;
 }

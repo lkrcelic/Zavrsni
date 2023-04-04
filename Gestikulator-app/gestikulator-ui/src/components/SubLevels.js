@@ -12,7 +12,7 @@ export default function SubLevels(props) {
   const listItems = props.subLevels.map((subLevel, index) => (
     <ListItem
       sx={{
-        backgroundColor: "#FB8C00",
+        backgroundColor: "#4CAF50",
         borderRadius: "40px",
         height: "200px",
         width: "200px",
@@ -54,7 +54,7 @@ export default function SubLevels(props) {
           maxWidth: 1500,
           maxHeight: "350px",
           align: "center",
-          bgcolor: "#FFEEB8",
+          bgcolor: "#BBDDFA",
           overflow: "auto",
           boxShadow: 1,
           paddingLeft: "30px",
