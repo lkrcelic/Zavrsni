@@ -1,16 +1,16 @@
-import Levels from "../components/Levels";
-import SubLevels from "../components/SubLevels";
-import FunFact from "../components/FunFact";
-import Prvi from "../components/Modals/Prvi.js";
-import Drugi from "../components/Modals/Drugi.js";
-import Treci from "../components/Modals/Treci.js";
-import Peti from "../components/Modals/Peti.js";
+import Levels from "./components/Levels";
+import SubLevels from "./components/SubLevels";
+import FunFact from "../../components/FunFact";
+import Prvi from "../../components/Modals/Prvi.js";
+import Drugi from "../../components/Modals/Drugi.js";
+import Treci from "../../components/Modals/Treci.js";
+import Peti from "../../components/Modals/Peti.js";
 
-import allLevels from "../components/levelConsts";
-import achievements from "../components/achievemenetsConsts";
-import activities from "../components/activityConsts";
+import allLevels from "../../components/levelConsts";
+import achievements from "../../components/achievemenetsConsts";
+import activities from "../../components/activityConsts";
 
-import useModal from "../useModal";
+import useModal from "../../useModal";
 import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 
 import SettingsIcon from "@mui/icons-material/Settings";
@@ -18,8 +18,8 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import CardHeader from "@mui/material/CardHeader";
 import Avatar from "@mui/material/Avatar";
 
-import Achievements from "../components/Achievements.js";
-import Activities from "../components/Activity.js";
+import Achievements from "../../components/Achievements.js";
+import Activities from "../../components/Activity.js";
 
 import React, {useState} from "react";
 import {AiFillFire} from "react-icons/ai";
