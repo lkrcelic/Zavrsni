@@ -7,7 +7,9 @@ import About from "./pages/about";
 import Profile from "./pages/profile";
 import RangList from "./pages/rangList";
 import Quiz from "./components/Quiz";
-import {ReactNode} from "react";
+
+import {ThemeProvider} from '@mui/material/styles';
+import theme from './theme';
 
 const routes = [
   {path: '/quizes', element: <Quiz/>},
@@ -19,14 +21,16 @@ const routes = [
 
 const App = () => {
   return (
-    <Router>
-      <NavbarController type="MainScreen"/>
-      <Routes>
-        {routes.map((route) => (
-          <Route key={route.path} path={route.path} element={route.element}/>
-        ))}
-      </Routes>
-    </Router>
+    <ThemeProvider theme={theme}>
+      <Router>
+        <NavbarController type="MainScreen"/>
+        <Routes>
+          {routes.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element}/>
+          ))}
+        </Routes>
+      </Router>
+    </ThemeProvider>
   );
 };
 

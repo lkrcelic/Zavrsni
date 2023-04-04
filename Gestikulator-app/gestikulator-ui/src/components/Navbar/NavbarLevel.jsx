@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from "react";
-import {Button, MenuItem, MenuList, Paper, Popover} from "@material-ui/core";
+import {Button, MenuItem, MenuList, Paper, Popover} from "@mui/material";
 import {FaHamburger} from "react-icons/fa";
 
 import "./_navbar.css";

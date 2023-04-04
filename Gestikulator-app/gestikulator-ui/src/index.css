@@ -110,7 +110,7 @@ div {
     height: 350px;
     top: 30%;
     left: 19%;
-    background-color: #ffdd71;
+    background-color: #FFC107;
     border-radius: 50px;
     text-align: center;
 }
@@ -132,7 +132,7 @@ div {
 
 /*QUIZ - QUESTION_TEXT*/
 .answers_text {
-    background: #ffdd71;
+    background: #FFC107;
     min-height: 70%;
     border-radius: 50px;
     display: grid;
@@ -153,7 +153,7 @@ div {
     font-size: 30px;
     font-weight: bold;
     border: 1px solid #121212;
-    background-color: #fb8c00;
+    background-color: #4CAF50;
     height: 180px;
     margin-left: 1px;
     color: #121212;
@@ -168,7 +168,7 @@ div {
 /*QUIZ - QUESTION_VIDEO*/
 .answers_video {
     height: 70%;
-    background: #ffdd71;
+    background: #FFC107;
     border-radius: 50px;
     display: grid;
     gap: 70px 0px;
@@ -188,7 +188,7 @@ div {
     font-size: 30px;
     font-weight: bold;
     border: 1px solid #121212;
-    background-color: #fb8c00;
+    background-color: #4CAF50;
     color: #121212;
     border-radius: 100px;
     height: 75px;
@@ -236,7 +236,7 @@ div {
 
 .next-button {
     color: #121212;
-    background: #fb8c00;
+    background: #4CAF50;
     padding: 15px;
     border-radius: 30px;
     font-size: 24px;
@@ -297,7 +297,7 @@ div {
     border-radius: 25px;
     height: 50px;
     width: 150px;
-    background-color: #ffdd71;
+    background-color: #FFC107;
 }
 
 .start-button {
@@ -323,8 +323,8 @@ div {
     width: 150px;
     margin: 0;
     margin: 10px;
-    background-color: #ffdd71;
-    background-color: #ffdd71;
+    background-color: #FFC107;
+    background-color: #FFC107;
 }
 
 
@@ -374,7 +374,7 @@ div {
     grid-area: izazovi;
     display: flex;
     flex-direction: column;
-    background-color: #ffeeb8;
+    background-color: #BBDDFA;
     border-radius: 30px 30px 0px 0px;
     color: #121212;
 }
@@ -383,7 +383,7 @@ div {
     grid-area: aktivnost;
     display: flex;
     flex-direction: column;
-    background-color: #ffeeb8;
+    background-color: #BBDDFA;
     border-radius: 0px 0px 30px 30px;
     color: #121212;
 }
@@ -499,7 +499,7 @@ ul li {
 }
 
 .buttonLevel {
-    background-color: #fb8c00;
+    background-color: #4CAF50;
     height: 20vh;
     width: 15vw;
     overflow: "auto";
@@ -515,7 +515,7 @@ button {
 }
 
 .button-default {
-    background-color: #fb8c00;
+    background-color: #4CAF50;
     color: #fff;
 }
 
@@ -549,7 +549,7 @@ button {
 
 .skip-button {
     color: #fff;
-    background: #fb8c00;
+    background: #4CAF50;
     width: 200px;
     font-size: 18px;
     font-weight: 600;

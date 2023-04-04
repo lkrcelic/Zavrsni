@@ -50,7 +50,7 @@ export default function Achievements(props) {
           marginTop: "5px",
           height: "75%",
           width: "90%",
-          bgcolor: "#FFDD71",
+          bgcolor: "#4CAF50",
           overflow: "scroll",
           boxShadow: 1,
           borderRadius: "10px",
