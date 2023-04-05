@@ -1,6 +1,6 @@
 import React from 'react';
 import {Grid, Typography} from '@mui/material';
-import {Card, Container} from '../styles';
+import {LevelCard, LevelsContainer} from '../styles';
 
 
 const Levels = ({levels, currentLevel, onClick}) => {
@@ -9,11 +9,11 @@ const Levels = ({levels, currentLevel, onClick}) => {
       <Typography variant="h3" marginLeft={2} marginBottom={-2}>
         Odaberi razinu
       </Typography>
-      <Container>
+      <LevelsContainer>
         <Grid wrap={"nowrap"} container justifyContent="flex-start" spacing={4}>
           {levels.map((level, index) => (
             <Grid item key={level.id}>
-              <Card
+              <LevelCard
                 onClick={() => onClick(level.id)}
                 disabled={level.predeno === '100%'}
                 style={{
@@ -21,11 +21,11 @@ const Levels = ({levels, currentLevel, onClick}) => {
                 }}
               >
                 <Typography variant="h4">{level.razina}</Typography>
-              </Card>
+              </LevelCard>
             </Grid>
           ))}
         </Grid>
-      </Container>
+      </LevelsContainer>
     </>
   );
 };

@@ -1,7 +1,7 @@
 import {styled} from "@mui/system";
 import {Button} from "@mui/material";
 
-export const Card = styled(Button)(({theme}) => ({
+export const LevelCard = styled(Button)(({theme}) => ({
   backgroundColor: '#4CAF50',
   borderRadius: '40px',
   display: 'flex',
