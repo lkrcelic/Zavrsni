@@ -1,8 +1,5 @@
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import NavbarController from "./components/Navbar/NavbarController";
-
-
-import Home from "./pages/home/home";
 import About from "./pages/about";
 import Profile from "./pages/profile";
 import RangList from "./pages/rangList";
@@ -10,6 +7,8 @@ import Quiz from "./components/Quiz";
 
 import {ThemeProvider} from '@mui/material/styles';
 import theme from './theme';
+import Home2 from "./pages/home/Home2";
+import Home from "./pages/home/Home";
 
 const routes = [
   {path: '/quizes', element: <Quiz/>},
