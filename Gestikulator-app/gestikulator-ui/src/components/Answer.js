@@ -1,4 +1,4 @@
-import * as Constants from "../constants.js";
+import * as Constants from "../constants/QuestionTypes.js";
 import AnswerVideo from "./AnswerVideo";
 import AnswerText from "./AnswerText";
 import AnswerCamera from "./AnswerCamera.js";

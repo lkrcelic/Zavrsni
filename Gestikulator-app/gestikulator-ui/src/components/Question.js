@@ -3,7 +3,7 @@ import {QuizContext} from "../contexts/quiz";
 import QuestionVideo from "./QuestionVideo";
 import QuestionText from "./QuestionText";
 import QuestionCamera from "./QuestionCamera";
-import * as Constants from "../constants.js"
+import * as Constants from "../constants/QuestionTypes.js"
 
 const Question = () => {
   const [quizState, dispatch] = useContext(QuizContext);

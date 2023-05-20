@@ -7,7 +7,6 @@ import Quiz from "./components/Quiz";
 
 import {ThemeProvider} from '@mui/material/styles';
 import theme from './theme';
-import Home2 from "./pages/home/Home2";
 import Home from "./pages/home/Home";
 
 const routes = [
