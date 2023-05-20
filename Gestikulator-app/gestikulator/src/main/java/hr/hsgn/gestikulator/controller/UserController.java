@@ -1,6 +1,6 @@
 package hr.hsgn.gestikulator.controller;
 
-import hr.hsgn.gestikulator.dto.UserRegisterRequest;
+import hr.hsgn.gestikulator.controller.request.UserRegisterRequest;
 import hr.hsgn.gestikulator.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

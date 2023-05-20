@@ -1,8 +1,7 @@
 import {styled} from "@mui/system";
 import {Button} from "@mui/material";
 
-export const LevelCard = styled(Button)(({theme}) => ({
-  backgroundColor: '#4CAF50',
+export const LevelCard = styled(Button)(({ theme, isActive }) => ({
   borderRadius: '40px',
   display: 'flex',
   flexDirection: 'column',
@@ -10,6 +9,7 @@ export const LevelCard = styled(Button)(({theme}) => ({
   alignItems: 'center',
   padding: theme.spacing(2),
   boxShadow: theme.shadows[1],
+  border: isActive ? '5px solid black' : 'none', // Conditional border style
 
   // Default styles for desktop
   height: '200px',
@@ -20,4 +20,8 @@ export const LevelCard = styled(Button)(({theme}) => ({
     width: '100px',
     height: '100px',
   },
+  "&.MuiButton-root": {
+    backgroundColor: '#4CAF50' // override in order to always keep this color
+  },
 }));
+

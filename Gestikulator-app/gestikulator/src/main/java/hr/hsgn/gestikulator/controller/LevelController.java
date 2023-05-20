@@ -2,10 +2,10 @@ package hr.hsgn.gestikulator.controller;
 
 import java.util.List;
 
-import hr.hsgn.gestikulator.dto.LevelRequest;
-import hr.hsgn.gestikulator.dto.MainStateRequest;
-import hr.hsgn.gestikulator.dto.SubLevelRequest;
-import hr.hsgn.gestikulator.dto.SubLevelSummaryRequest;
+import hr.hsgn.gestikulator.controller.dto.LevelDTO;
+import hr.hsgn.gestikulator.controller.request.LevelRequest;
+import hr.hsgn.gestikulator.controller.request.MainStateRequest;
+import hr.hsgn.gestikulator.controller.request.SubLevelSummaryRequest;
 import hr.hsgn.gestikulator.entity.Level;
 import hr.hsgn.gestikulator.service.LevelService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +23,7 @@ public class LevelController {
     }
 
     @GetMapping
-    public List<Level> getLevels(){ return levelService.getLevels(); }
+    public List<LevelDTO> getLevels(){ return levelService.getLevels(); }
 
     @GetMapping(value="/solved")
     public List<LevelRequest> getLevelsWithSolved(){ return levelService.getLevelsWithSolved(1L); }

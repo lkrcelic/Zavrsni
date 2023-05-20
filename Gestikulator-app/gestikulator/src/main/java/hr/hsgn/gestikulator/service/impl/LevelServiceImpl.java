@@ -1,10 +1,11 @@
 package hr.hsgn.gestikulator.service.impl;
 
-import hr.hsgn.gestikulator.dto.AnswerRequest;
-import hr.hsgn.gestikulator.dto.LevelRequest;
-import hr.hsgn.gestikulator.dto.MainStateRequest;
-import hr.hsgn.gestikulator.dto.SubLevelSummaryRequest;
-import hr.hsgn.gestikulator.dto.UserAnswerRequest;
+import hr.hsgn.gestikulator.controller.dto.LevelDTO;
+import hr.hsgn.gestikulator.controller.request.AnswerRequest;
+import hr.hsgn.gestikulator.controller.request.LevelRequest;
+import hr.hsgn.gestikulator.controller.request.MainStateRequest;
+import hr.hsgn.gestikulator.controller.request.SubLevelSummaryRequest;
+import hr.hsgn.gestikulator.controller.request.UserAnswerRequest;
 import hr.hsgn.gestikulator.entity.Activity;
 import hr.hsgn.gestikulator.entity.Challenge;
 import hr.hsgn.gestikulator.entity.DailyTip;
@@ -28,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class LevelServiceImpl implements LevelService {
@@ -52,13 +54,15 @@ public class LevelServiceImpl implements LevelService {
     }
 
     @Override
-    public List<Level> getLevels() {
-        return levelRepository.findAll();
+    public List<LevelDTO> getLevels() {
+        return levelRepository.findAll().stream().map(level -> mapper.map(level, LevelDTO.class))
+            .collect(Collectors.toList());
     }
 
     @Override
     public List<LevelRequest> getLevelsWithSolved(Long userId) {
-        List<Level> levels = getLevels();
+        //TODo zakomentirano zbog promejen getLevels()
+        /*List<Level> levels = getLevels();
         List<LevelRequest> levelRequests = new ArrayList<>();
 
         for (Level level : levels) {
@@ -70,7 +74,8 @@ public class LevelServiceImpl implements LevelService {
             level.setSubLevels(subLevels);
             levelRequests.add(new LevelRequest(level, areSolved));
         }
-        return levelRequests;
+        return levelRequests;*/
+        return null;
     }
 
     @Override

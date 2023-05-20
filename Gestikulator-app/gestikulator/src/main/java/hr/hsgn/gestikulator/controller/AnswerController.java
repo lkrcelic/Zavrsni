@@ -1,6 +1,6 @@
 package hr.hsgn.gestikulator.controller;
 
-import hr.hsgn.gestikulator.dto.UserAnswerRequest;
+import hr.hsgn.gestikulator.controller.request.UserAnswerRequest;
 import hr.hsgn.gestikulator.entity.UserAnswer;
 import hr.hsgn.gestikulator.service.UserAnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
