@@ -1,6 +1,6 @@
 package hr.hsgn.gestikulator.service.impl;
 
-import hr.hsgn.gestikulator.dto.UserAnswerRequest;
+import hr.hsgn.gestikulator.controller.request.UserAnswerRequest;
 import hr.hsgn.gestikulator.entity.Gesture;
 import hr.hsgn.gestikulator.entity.Question;
 import hr.hsgn.gestikulator.entity.User;

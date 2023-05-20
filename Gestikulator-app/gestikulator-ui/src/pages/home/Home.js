@@ -21,11 +21,12 @@ import Avatar from "@mui/material/Avatar";
 import Achievements from "../../components/Achievements.js";
 import Activities from "../../components/Activity.js";
 
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {AiFillFire} from "react-icons/ai";
 import Badge from "@mui/material/Badge";
 import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
+import {getLevels} from "../../api/gestikulator/levelsApi";
 
 const Home = () => {
   //TODO rješiti te modale za pomoc na pocetku
@@ -48,14 +49,18 @@ const Home = () => {
     navigate(path);
   };
 
+  useEffect(() => {
+    getLevels().then(res => setLevels2(res));
+  }, []);
 
   const [currentLevel, setCurrentLevel] = useState(0);
   const [levels, setLevels] = useState(allLevels);
+  const [levels2, setLevels2] = useState();
   const [selectedSubLevel, setSelectedSubLevel] = useState();
 
   const handleLevelClick = (value) => {
     setCurrentLevel(value);
-    //setSelectedSubLevel(null)
+    setSelectedSubLevel();
   };
 
   const handleOnStartClick = (value) => {
@@ -112,7 +117,7 @@ const Home = () => {
 
       <div class="razine">
         <Levels
-          levels={levels}
+          levels={levels2 || []}
           onClick={handleLevelClick}
           currentLevel={currentLevel}
         />
@@ -122,6 +127,7 @@ const Home = () => {
         <SubLevels
           className="subLevels-list"
           subLevels={levels[currentLevel].podrazine}
+          currentSubLevel={selectedSubLevel}
           setSelectedSubLevel={setSelectedSubLevel}
         />
       </div>

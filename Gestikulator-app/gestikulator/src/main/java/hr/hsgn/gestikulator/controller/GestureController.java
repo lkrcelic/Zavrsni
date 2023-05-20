@@ -1,8 +1,6 @@
 package hr.hsgn.gestikulator.controller;
 
-import hr.hsgn.gestikulator.dto.MainStateRequest;
 import hr.hsgn.gestikulator.entity.Gesture;
-import hr.hsgn.gestikulator.entity.Level;
 import hr.hsgn.gestikulator.service.GestureService;
 import org.springframework.web.bind.annotation.*;
 

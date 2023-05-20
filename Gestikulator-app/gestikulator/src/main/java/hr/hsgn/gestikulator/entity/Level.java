@@ -17,8 +17,7 @@ public class Level {
     private Long id;
     private String name;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name="subLevels")
+    @OneToMany(mappedBy = "level", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     List<SubLevel> subLevels;
 
 }

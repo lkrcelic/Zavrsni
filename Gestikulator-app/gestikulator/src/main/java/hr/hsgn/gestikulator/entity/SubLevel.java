@@ -18,7 +18,9 @@ public class SubLevel {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="level_id", nullable=false)
     private Level level;
+
 
     @Column(name="previous_id")
     @Nullable

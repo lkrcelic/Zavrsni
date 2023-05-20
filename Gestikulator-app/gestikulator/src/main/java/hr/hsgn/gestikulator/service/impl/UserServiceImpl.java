@@ -1,6 +1,6 @@
 package hr.hsgn.gestikulator.service.impl;
 
-import hr.hsgn.gestikulator.dto.UserRegisterRequest;
+import hr.hsgn.gestikulator.controller.request.UserRegisterRequest;
 import hr.hsgn.gestikulator.entity.User;
 import hr.hsgn.gestikulator.repository.UserRepository;
 import hr.hsgn.gestikulator.service.UserService;

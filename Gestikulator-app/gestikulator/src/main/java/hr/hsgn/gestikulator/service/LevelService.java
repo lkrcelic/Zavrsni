@@ -2,14 +2,15 @@ package hr.hsgn.gestikulator.service;
 
 import java.util.List;
 
-import hr.hsgn.gestikulator.dto.LevelRequest;
-import hr.hsgn.gestikulator.dto.MainStateRequest;
-import hr.hsgn.gestikulator.dto.SubLevelSummaryRequest;
+import hr.hsgn.gestikulator.controller.dto.LevelDTO;
+import hr.hsgn.gestikulator.controller.request.LevelRequest;
+import hr.hsgn.gestikulator.controller.request.MainStateRequest;
+import hr.hsgn.gestikulator.controller.request.SubLevelSummaryRequest;
 import hr.hsgn.gestikulator.entity.Level;
 
 public interface LevelService {
 
-    List<Level> getLevels();
+    List<LevelDTO> getLevels();
 
     List<LevelRequest> getLevelsWithSolved(Long userId);
 
