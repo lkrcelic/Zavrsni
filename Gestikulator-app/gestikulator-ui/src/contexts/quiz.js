@@ -1,6 +1,6 @@
 import React, {createContext, useReducer} from "react";
 import questions from "../data";
-import {shuffleAnswers} from "../helpers";
+import {shuffleAnswers} from "../helperfunctions/shuffleAnswers";
 
 const initialState = {
   questions,

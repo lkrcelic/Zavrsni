@@ -21,9 +21,9 @@ const levels = [
     predeno: "0%",
     ikona: <Battery3Bar/>,
     podrazine: [
-      {podRazina: "Godina", predeno: false},
-      {podRazina: "Gluh", predeno: false},
-      {podRazina: "Ime", predeno: false},
+      {id: 0, podRazina: "Godina", predeno: false},
+      {id: 1, podRazina: "Gluh", predeno: false},
+      {id: 2, podRazina: "Ime", predeno: false},
     ],
   },
   {
@@ -32,11 +32,11 @@ const levels = [
     predeno: "0%",
     ikona: <CheckBoxOutlineBlankIcon/>,
     podrazine: [
-      {podRazina: "Voće", predeno: false},
-      {podRazina: "Povrće", predeno: false},
-      {podRazina: "Slatkiši", predeno: false},
-      {podRazina: "Meso", predeno: false},
-      {podRazina: "Piće", predeno: false},
+      {id: 0, podRazina: "Voće", predeno: false},
+      {id: 1, podRazina: "Povrće", predeno: false},
+      {id: 2, podRazina: "Slatkiši", predeno: false},
+      {id: 3, podRazina: "Meso", predeno: false},
+      {id: 4, podRazina: "Piće", predeno: false},
     ],
   },
   {

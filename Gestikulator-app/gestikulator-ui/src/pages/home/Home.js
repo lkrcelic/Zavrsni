@@ -6,7 +6,7 @@ import Drugi from "../../components/Modals/Drugi.js";
 import Treci from "../../components/Modals/Treci.js";
 import Peti from "../../components/Modals/Peti.js";
 
-import allLevels from "../../components/levelConsts";
+import allLevels from "../../constants/levelConsts";
 import achievements from "../../components/achievemenetsConsts";
 import activities from "../../components/activityConsts";
 
@@ -28,6 +28,7 @@ import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
 
 const Home = () => {
+  //TODO rješiti te modale za pomoc na pocetku
   const {
     isShowing1,
     isShowing2,
@@ -48,12 +49,13 @@ const Home = () => {
   };
 
 
-  const [currentLevel, setcurrentLevel] = useState(0);
+  const [currentLevel, setCurrentLevel] = useState(0);
   const [levels, setLevels] = useState(allLevels);
-  const [subLevelIndexSelected, setSubLevelIndexSelected] = useState();
+  const [selectedSubLevel, setSelectedSubLevel] = useState();
 
   const handleLevelClick = (value) => {
-    setcurrentLevel(value);
+    setCurrentLevel(value);
+    //setSelectedSubLevel(null)
   };
 
   const handleOnStartClick = (value) => {
@@ -111,8 +113,7 @@ const Home = () => {
       <div class="razine">
         <Levels
           levels={levels}
-          key={levels[currentLevel].id}
-          onClick={(value) => handleLevelClick(value)}
+          onClick={handleLevelClick}
           currentLevel={currentLevel}
         />
       </div>
@@ -121,13 +122,12 @@ const Home = () => {
         <SubLevels
           className="subLevels-list"
           subLevels={levels[currentLevel].podrazine}
-          key={levels[currentLevel].id}
-          setSubLevelIndexSelected={setSubLevelIndexSelected}
+          setSelectedSubLevel={setSelectedSubLevel}
         />
       </div>
 
       <div class="start-button">
-        <Button disabled={!!!subLevelIndexSelected} onClick={handleOnStartClick}>
+        <Button disabled={!selectedSubLevel} onClick={handleOnStartClick}>
           Kreni
         </Button>
       </div>
