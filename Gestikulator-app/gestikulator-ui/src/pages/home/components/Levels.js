@@ -3,7 +3,7 @@ import {Grid, Typography} from '@mui/material';
 import {LevelCard, LevelsContainer} from '../styles';
 
 
-const Levels = ({levels, currentLevel, onClick}) => {
+const Levels = ({levels, currentLevelId, onClick}) => {
 
   return (
     <>
@@ -15,9 +15,8 @@ const Levels = ({levels, currentLevel, onClick}) => {
           {levels.map((level, index) => (
             <Grid item key={index}>
               <LevelCard
-                onClick={() => onClick(index)}
-                //disabled={level.predeno === '100%'} //TODO
-                isActive={currentLevel === index}
+                onClick={() => onClick(level.id)}
+                isActive={currentLevelId === level.id}
               >
                 <Typography variant="h4">{level.name}</Typography>
               </LevelCard>

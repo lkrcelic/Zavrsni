@@ -2,7 +2,7 @@ import * as React from "react";
 import {Grid, Typography} from "@mui/material";
 import {LevelCard, LevelsContainer} from "../styles";
 
-export default function SubLevels({subLevels, currentSubLevel, setSelectedSubLevel}) {
+export default function SubLevels({subLevels, currentSubLevelId, setSelectedSubLevelId}) {
   return (
     <>
       <Typography variant="h3" marginLeft={2} marginBottom={-2}>
@@ -14,12 +14,11 @@ export default function SubLevels({subLevels, currentSubLevel, setSelectedSubLev
             <Grid item key={index}>
               <LevelCard
                 onClick={() => {
-                  setSelectedSubLevel(index)
+                  setSelectedSubLevelId(subLevel.id)
                 }}
-                isActive={currentSubLevel === index}
-                disabled={subLevel.predeno}
+                isActive={currentSubLevelId === subLevel.id}
               >
-                <Typography variant="h4">{subLevel.podRazina}</Typography>
+                <Typography variant="h4">{subLevel.name}</Typography>
               </LevelCard>
             </Grid>
           ))}

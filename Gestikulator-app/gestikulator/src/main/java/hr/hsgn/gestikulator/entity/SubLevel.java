@@ -4,12 +4,20 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.lang.Nullable;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Getter
 @Setter
 @Entity
-@Table(name="sub_level")
+@Table(name = "sub_level")
 public class SubLevel {
 
     @Id
@@ -18,11 +26,10 @@ public class SubLevel {
     private String name;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="level_id", nullable=false)
+    @JoinColumn(name = "level_id", nullable = false)
     private Level level;
 
-
-    @Column(name="previous_id")
+    @Column(name = "previous_id")
     @Nullable
     private Long previous_id;
 

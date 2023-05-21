@@ -26,7 +26,9 @@ import {AiFillFire} from "react-icons/ai";
 import Badge from "@mui/material/Badge";
 import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
-import {getLevels} from "../../api/gestikulator/levelsApi";
+import {getLevels} from "../../api/gestikulator/levelsAPI";
+import {getSubLevelsByLevelId} from "../../api/gestikulator/subLevelsAPI";
+
 
 const Home = () => {
   //TODO rješiti te modale za pomoc na pocetku
@@ -43,6 +45,12 @@ const Home = () => {
     toggleFunFact,
   } = useModal();
 
+  const [currentLevelId, setCurrentLevelId] = useState(1);
+  const [levels, setLevels] = useState(allLevels);
+  const [levels2, setLevels2] = useState();
+  const [selectedSubLevelId, setSelectedSubLevelIdId] = useState();
+  const [subLevels, setSubLevels] = useState();
+
   let navigate = useNavigate();
   const routeChange = () => {
     let path = `/quizes`;
@@ -53,14 +61,14 @@ const Home = () => {
     getLevels().then(res => setLevels2(res));
   }, []);
 
-  const [currentLevel, setCurrentLevel] = useState(0);
-  const [levels, setLevels] = useState(allLevels);
-  const [levels2, setLevels2] = useState();
-  const [selectedSubLevel, setSelectedSubLevel] = useState();
+  useEffect(() => {
+    getSubLevelsByLevelId(currentLevelId).then(res => setSubLevels(res));
+  }, [currentLevelId]);
 
-  const handleLevelClick = (value) => {
-    setCurrentLevel(value);
-    setSelectedSubLevel();
+
+  const handleLevelClick = (id) => {
+    setCurrentLevelId(id);
+    setSelectedSubLevelIdId();
   };
 
   const handleOnStartClick = (value) => {
@@ -119,21 +127,22 @@ const Home = () => {
         <Levels
           levels={levels2 || []}
           onClick={handleLevelClick}
-          currentLevel={currentLevel}
+          currentLevelId={currentLevelId}
         />
       </div>
 
       <div class="podrazine">
         <SubLevels
           className="subLevels-list"
-          subLevels={levels[currentLevel].podrazine}
-          currentSubLevel={selectedSubLevel}
-          setSelectedSubLevel={setSelectedSubLevel}
+          //subLevels={levels[currentLevelId].podrazine}
+          subLevels={subLevels || []}
+          currentSubLevelId={selectedSubLevelId}
+          setSelectedSubLevelId={setSelectedSubLevelIdId}
         />
       </div>
 
       <div class="start-button">
-        <Button disabled={!selectedSubLevel} onClick={handleOnStartClick}>
+        <Button disabled={!selectedSubLevelId} onClick={handleOnStartClick}>
           Kreni
         </Button>
       </div>
