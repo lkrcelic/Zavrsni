@@ -182,4 +182,8 @@
         </createTable>
     </changeSet>
 
+    <changeSet id="05-26-2023-17:26" author="lkrcelic">
+        <renameColumn tableName="gesture" oldColumnName="text" newColumnName="name" />
+    </changeSet>
+
 </databaseChangeLog>

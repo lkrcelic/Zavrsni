@@ -14,7 +14,7 @@ VALUES ('Testna pod razina', 1),
        ('Treća pod razina', 3),
        ('Četvrta pod razina', 3);
 
-INSERT INTO gesture(text, uri, description)
+INSERT INTO gesture(name, uri, description)
 VALUES ('Pozdrav', 'C:\put\gesta.mp4', 'gesta za pozdrav'),
        ('Molim', 'C:\put\jos_puta\gestica.mp4', 'gesta za molim'),
        ('Majmun', 'neki uri', 'gesta za majmuna'),
