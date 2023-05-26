@@ -9,7 +9,6 @@ public class SubLevelDTO {
 
     private Long id;
     private String name;
-
     private Long previous_id;
 
 }
