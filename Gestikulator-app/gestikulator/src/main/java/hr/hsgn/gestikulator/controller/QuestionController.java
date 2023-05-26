@@ -1,5 +1,6 @@
 package hr.hsgn.gestikulator.controller;
 
+import hr.hsgn.gestikulator.controller.dto.QuestionDTO;
 import hr.hsgn.gestikulator.entity.Question;
 import hr.hsgn.gestikulator.service.impl.QuestionServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,5 @@ public class QuestionController {
     public List<Question> getQuestions(){ return questionService.getQuestions(); }
 
     @GetMapping(value="/subLevel/{id}")
-    public List<Question> getSubLevelQuestions(@PathVariable("id") Long id){ return questionService.getSubLevelQuestions(id); }
+    public List<QuestionDTO> getSubLevelQuestions(@PathVariable("id") Long id){ return questionService.getSubLevelQuestions(id); }
 }

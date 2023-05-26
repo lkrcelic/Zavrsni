@@ -5,10 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class SubLevelDTO {
-
-    private Long id;
+public class GestureDTO {
     private String name;
-    private Long previous_id;
+    private String uri;
+    private String description;
 
 }
