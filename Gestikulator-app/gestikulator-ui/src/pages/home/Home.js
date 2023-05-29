@@ -46,12 +46,12 @@ const Home = () => {
   } = useModal();
 
   const [currentLevelId, setCurrentLevelId] = useState(1);
-  const [levels, setLevels] = useState(allLevels);
   const [levels2, setLevels2] = useState();
   const [selectedSubLevelId, setSelectedSubLevelIdId] = useState();
   const [subLevels, setSubLevels] = useState();
 
-  let navigate = useNavigate();
+  const navigate = useNavigate();
+
   const routeChange = () => {
     let path = `/quizes`;
     navigate(path);
@@ -134,7 +134,6 @@ const Home = () => {
       <div class="podrazine">
         <SubLevels
           className="subLevels-list"
-          //subLevels={levels[currentLevelId].podrazine}
           subLevels={subLevels || []}
           currentSubLevelId={selectedSubLevelId}
           setSelectedSubLevelId={setSelectedSubLevelIdId}

@@ -1,15 +1,15 @@
-import {useContext, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import Question from "./Question";
-import {QuizContext} from "../contexts/quiz";
+import {QuizContext} from "../../contexts/quiz";
 import ReactTooltip from "react-tooltip";
 import {ImBell, ImFire} from "react-icons/im";
 import {AiFillCloseCircle} from "react-icons/ai";
-import ExitLevel from "./ExitLevel";
+import ExitLevel from "../../components/ExitLevel";
 import {useNavigate} from "react-router-dom";
+import {getQuestionsBySubLevelId} from "../../api/gestikulator/QuestionsAPI";
 
 const Quiz = () => {
   const [quizState, dispatch] = useContext(QuizContext);
-
   const [isShowing, setIsShowing] = useState(false);
 
   function toggle() {
@@ -17,6 +17,17 @@ const Quiz = () => {
   }
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    async function fetchQuestions() {
+      const questions = await getQuestionsBySubLevelId(1); //TODO ne hardcoded ID
+      dispatch({ type: 'UPDATE_QUESTIONS', payload: questions });
+    }
+
+    fetchQuestions();
+  }, []);
+
+
 
   function endQuiz() {
     console.log("tu sam");

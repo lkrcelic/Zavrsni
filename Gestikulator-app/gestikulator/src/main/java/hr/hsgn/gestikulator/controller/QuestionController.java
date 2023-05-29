@@ -25,6 +25,6 @@ public class QuestionController {
     @GetMapping
     public List<Question> getQuestions(){ return questionService.getQuestions(); }
 
-    @GetMapping(value="/subLevel/{id}")
+    @GetMapping(value="/sub_level/{id}")
     public List<QuestionDTO> getSubLevelQuestions(@PathVariable("id") Long id){ return questionService.getSubLevelQuestions(id); }
 }

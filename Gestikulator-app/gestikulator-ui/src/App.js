@@ -3,7 +3,7 @@ import NavbarController from "./components/Navbar/NavbarController";
 import About from "./pages/about";
 import Profile from "./pages/profile";
 import RangList from "./pages/rangList";
-import Quiz from "./components/Quiz";
+import Quiz from "./pages/quiz/Quiz";
 
 import {ThemeProvider} from '@mui/material/styles';
 import theme from './theme';
