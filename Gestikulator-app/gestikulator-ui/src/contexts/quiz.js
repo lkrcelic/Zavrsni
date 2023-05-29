@@ -1,45 +1,47 @@
-import React, {createContext, useReducer} from "react";
-import questions from "../data";
-import {shuffleAnswers} from "../helperfunctions/shuffleAnswers";
+import React, { createContext, useReducer } from "react";
+import { shuffleAnswers } from "../helperfunctions/shuffleAnswers";
 
 const initialState = {
-  questions,
+  questions: [],
   currentQuestionIndex: 0,
-  currentAnswer: "",
-  answers: shuffleAnswers(questions[0]),
-  showResults: false,
   correctAnswersCount: 0,
+  showResults: false,
 };
 
-const reducer = (state, action) => {
+const quizReducer = (state, action) => {
   switch (action.type) {
-    case "SELECT_ANSWER": {
-      const correctAnswersCount =
-        action.payload ===
-        state.questions[state.currentQuestionIndex].correctAnswer
-          ? state.correctAnswersCount + 1
-          : state.correctAnswersCount;
+    case 'UPDATE_QUESTIONS':
+      const answers = shuffleAnswers(action.payload[state.currentQuestionIndex]);
+      const correctAnswer = action.payload[state.currentQuestionIndex].correctGesture;
       return {
         ...state,
-        currentAnswer: action.payload,
-        correctAnswersCount,
+        questions: action.payload,
+        answers,
+        correctAnswer,
       };
+    case "SELECT_ANSWER": {
+      if (action.payload === state.correctAnswer) {
+        return {
+          ...state,
+          correctAnswersCount: state.correctAnswersCount + 1,
+        };
+      }
+
+      return state;
     }
     case "NEXT_QUESTION": {
-      const showResults =
-        state.currentQuestionIndex === state.questions.length - 1;
-      const currentQuestionIndex = showResults
-        ? state.currentQuestionIndex
-        : state.currentQuestionIndex + 1;
-      const answers = showResults
-        ? []
-        : shuffleAnswers(state.questions[currentQuestionIndex]);
+      const nextQuestionIndex = state.currentQuestionIndex + 1;
+      const showResults = nextQuestionIndex === state.questions.length;
+      const currentQuestionIndex = showResults ? state.currentQuestionIndex : nextQuestionIndex;
+      const answers = showResults ? [] : shuffleAnswers(state.questions[currentQuestionIndex]);
+      const correctAnswer = showResults ? null : state.questions[currentQuestionIndex].correctGesture;
+
       return {
         ...state,
-        currentAnswer: "",
-        showResults,
         currentQuestionIndex,
         answers,
+        correctAnswer,
+        showResults,
       };
     }
     case "RESTART": {
@@ -53,7 +55,7 @@ const reducer = (state, action) => {
 export const QuizContext = createContext();
 
 export const QuizProvider = ({children}) => {
-  const value = useReducer(reducer, initialState);
+  const value = useReducer(quizReducer, initialState);
 
   return <QuizContext.Provider value={value}>{children}</QuizContext.Provider>;
 };
