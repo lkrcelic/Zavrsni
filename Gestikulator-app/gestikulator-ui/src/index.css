@@ -50,6 +50,7 @@ div {
 
 .answers {
     grid-area: answers;
+
 }
 
 /*QUIZ - QUESTION-INFO*/
@@ -167,12 +168,12 @@ div {
 
 /*QUIZ - QUESTION_VIDEO*/
 .answers_video {
+    position: relative;
     height: 70%;
     background: #FFC107;
     border-radius: 50px;
     display: grid;
-    gap: 70px 0px;
-    grid-template-columns: 1.5fr 1.5fr 1.5fr;
+    gap: 60px 0px;
     grid-template-areas:
     "video_container answer answer"
     "video_container answer answer";
@@ -181,7 +182,8 @@ div {
 .video_container {
     grid-area: video_container;
     display: flex;
-    align-items: top;
+    justify-content: center;
+    align-items: center;
 }
 
 .answer-text-letter {
@@ -253,13 +255,6 @@ div {
     pointer-events: none;
 }
 
-.video {
-    background-color: #e3e4e6;
-    height: 100px;
-    height: 10%;
-    border: 1px solid #121212;
-    text-align: center;
-}
 
 .video:hover p {
     transform: scaleY(0.66);
@@ -571,20 +566,6 @@ button {
     text-align: center;
 }
 
-.score {
-    text-align: right;
-    background: #fff;
-    color: 000;
-    font-size: 18px;
-    width: 200px;
-    margin: 0 auto;
-    font-weight: 600;
-    height: 40px;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: right;
-    justify-content: right;
-}
 
 
 .camera-answer {

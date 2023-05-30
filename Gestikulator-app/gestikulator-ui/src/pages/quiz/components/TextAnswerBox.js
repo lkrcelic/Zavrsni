@@ -4,8 +4,9 @@ import {Box} from "@mui/material";
 export const TextAnswerBox = styled(Box)({
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   gap: '10px',
+  marginLeft: '50px',
 });
 
 

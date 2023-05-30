@@ -16,9 +16,9 @@ export default function QuizContent({ currentQuestionIndex, questionsLength, que
           Pola-Pola!
         </ReactTooltip>
         <div className="score">
-          <span>
+          <Typography variant="h5">
             Question {currentQuestionIndex + 1}/{questionsLength}
-          </span>
+          </Typography>
           <ReactTooltip id="streakTip" place="top" effect="solid">
             Točnih odgovora za redom!
           </ReactTooltip>
