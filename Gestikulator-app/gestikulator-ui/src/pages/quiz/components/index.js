@@ -1,4 +1,4 @@
 import {AnswerButton} from './AnswerButton';
-import {AnswerBox} from './AnswerBox';
+import {TextAnswerBox} from './TextAnswerBox';
 
-export { AnswerButton, AnswerBox };
+export { AnswerButton, TextAnswerBox };

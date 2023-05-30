@@ -1,5 +1,5 @@
 import {Typography} from '@mui/material';
-import {AnswerBox, AnswerButton} from "../pages/quiz/components";
+import {TextAnswerBox, AnswerButton} from "./index";
 
 const AnswerText = ({
                       answerText,
@@ -13,7 +13,7 @@ const AnswerText = ({
   const buttonColor = isThisAnswerSelected ? (isCorrect ? 'green' : 'red') : 'transparent';
 
   return (
-    <AnswerBox>
+    <TextAnswerBox>
       <AnswerButton
         variant="outlined"
         onClick={onSelectAnswer}
@@ -27,7 +27,7 @@ const AnswerText = ({
       <Typography variant="h4">
         {answerText}
       </Typography>
-    </AnswerBox>
+    </TextAnswerBox>
   );
 };
 

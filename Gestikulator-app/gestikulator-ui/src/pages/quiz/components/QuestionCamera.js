@@ -1,5 +1,5 @@
 import React from 'react';
-import Answer from "../../../components/Answer";
+import Answer from "./Answer";
 
 const QuestionCamera = (currentQuestion, quizState, dispatch) => {
   return (

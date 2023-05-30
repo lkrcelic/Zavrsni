@@ -1,25 +1,24 @@
-import React from "react";
-import Answer from "../../../components/Answer";
+import React, {useContext} from "react";
+import Answer from "./Answer";
+import {QuizContext} from "../../../contexts/quiz";
 
-const QuestionText = (currentQuestion, quizState, dispatch) => {
-  console.log("Question text")
+const QuestionText = () => {
+  const [quizState, dispatch] = useContext(QuizContext);
+  const gestures = quizState?.answers;
+  const currentQuestion = quizState?.questions[quizState.currentQuestionIndex];
+
   return (
     <>
       <div className="question">
-        <span>{currentQuestion.question}</span>
+        <span>{currentQuestion.text}</span>
       </div>
       <div className="answers_text">
-        {quizState.answers.map((answer, index) => (
+        {gestures.map((gesture, index) => (
           <Answer
-            answerText={answer}
-            QuestionAnswerType={currentQuestion.QuestionAnswerType}
-            currentAnswer={quizState.currentAnswer}
-            correctAnswer={currentQuestion.correctAnswer}
-            key={index}
+            gesture={gesture}
+            QuestionAnswerType={currentQuestion?.questionType}
             index={index}
-            onSelectAnswer={(answerText) =>
-              dispatch({type: "SELECT_ANSWER", payload: answerText})
-            }
+            onSelectAnswer={() => dispatch({type: "SELECT_ANSWER", payload: gesture})}
           />
         ))}
       </div>
