@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import Answer from "../../../components/Answer";
+import Answer from "./Answer";
 import {QuizContext} from "../../../contexts/quiz";
 
 const QuestionVideo = () => {
@@ -15,10 +15,8 @@ const QuestionVideo = () => {
         <div className="video_container">
           <div className="video">
             <video loop autoPlay height="400" isMuted={true}>
-              <source
-                src={require("../../../assets/" + "Gluh_1.MP4")} //TODO currentQuestion.correctGesture.uri
-                type="video/ogg"
-              />
+              //TODO currentQuestion.correctGesture.uri
+              <source src={require("../../../assets/" + "Gluh_1.MP4")}  type="video/ogg"/>
               Your browser does not support the video tag.
             </video>
           </div>

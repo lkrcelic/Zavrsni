@@ -1,8 +1,8 @@
-import * as Constants from "../constants/QuestionTypes.js";
+import * as Constants from "../../../constants/QuestionTypes.js";
 import AnswerVideo from "./AnswerVideo";
 import AnswerText from "./AnswerText";
 import AnswerCamera from "./AnswerCamera.js";
-import {QuizContext} from "../contexts/quiz";
+import {QuizContext} from "../../../contexts/quiz";
 import {useContext} from "react";
 
 const Answer = ({gesture, QuestionAnswerType, index, onSelectAnswer}) => {
@@ -26,6 +26,7 @@ const Answer = ({gesture, QuestionAnswerType, index, onSelectAnswer}) => {
 
   switch (QuestionAnswerType) {
     case Constants.QuestionTextAnswerVideo:
+    case Constants.GUESS_PHRASE:
       return <AnswerVideo {...answerProps} />;
     case Constants.QuestionVideoAnswerText: //TODO makuti nepotrebne caseove
     case Constants.QuestionTextAnswerText:

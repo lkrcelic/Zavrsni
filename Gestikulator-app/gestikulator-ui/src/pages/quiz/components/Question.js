@@ -9,14 +9,16 @@ const Question = () => {
   const [quizState, dispatch] = useContext(QuizContext);
   const currentQuestion = quizState.questions[quizState.currentQuestionIndex];
 
-  if (currentQuestion?.questionType === Constants.GUESS_GESTURE)
-    return QuestionVideo()
-
-  if (currentQuestion?.questionType === Constants.PERFORM_GESTURE)
-    return QuestionCamera(currentQuestion, quizState, dispatch)
-
-  return <div></div> // TODO
- // return QuestionText(currentQuestion, quizState, dispatch)
+  switch (currentQuestion?.questionType) {
+    case Constants.GUESS_GESTURE:
+      return QuestionVideo();
+    case Constants.PERFORM_GESTURE:
+      return QuestionCamera(currentQuestion, quizState, dispatch);
+    case Constants.GUESS_PHRASE:
+      return QuestionText();
+    default:
+      return <></>;
+  }
 };
 
 export default Question;

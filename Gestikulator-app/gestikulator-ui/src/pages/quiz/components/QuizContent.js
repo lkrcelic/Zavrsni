@@ -3,6 +3,7 @@ import React from "react";
 import {ImBell, ImFire} from "react-icons/im";
 import ReactTooltip from "react-tooltip";
 import Question from "./Question";
+import {Box, Button, Typography} from "@mui/material";
 
 export default function QuizContent({ currentQuestionIndex, questionsLength, questionAnswered, nextQuestion }) {
   return (
@@ -32,12 +33,16 @@ export default function QuizContent({ currentQuestionIndex, questionsLength, que
       </div>
       <div className="answers">
         <Question/>
+        {questionAnswered && (
+          <Box sx={{ marginTop: 2, marginRight: 1,}}>
+            <Button onClick={nextQuestion} variant="contained" color="info" sx={{ borderRadius: 50 }}>
+              <Typography variant="h6">
+                Sljedeće pitanje
+              </Typography>
+            </Button>
+          </Box>
+        )}
       </div>
-      {questionAnswered && (
-        <div onClick={nextQuestion} className="next-button">
-          Sljedeće pitanje
-        </div>
-      )}
     </>
   );
 }

@@ -42,6 +42,15 @@ const typography = {
   h3: {
     color: palette.text.primary,
   },
+  h5: {
+    color: palette.text.primary,
+  },
+  h6: {
+    color: palette.text.primary,
+    lineHeight: "1.8",
+    fontFamily: "inherit",
+    fontWeight: "bold",
+  }
 };
 
 const theme = createTheme({
