@@ -1,7 +1,8 @@
 import React from "react";
-import Answer from "../../components/Answer";
+import Answer from "../../../components/Answer";
 
 const QuestionText = (currentQuestion, quizState, dispatch) => {
+  console.log("Question text")
   return (
     <>
       <div className="question">

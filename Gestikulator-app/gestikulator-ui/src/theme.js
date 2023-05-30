@@ -39,6 +39,9 @@ const typography = {
     lineHeight: "1.2",
     fontFamily: "inherit",
   },
+  h3: {
+    color: palette.text.primary,
+  },
 };
 
 const theme = createTheme({

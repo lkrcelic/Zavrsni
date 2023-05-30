@@ -1,14 +1,11 @@
-import React from "react";
-import Answer from "../../components/Answer";
+import React, {useContext} from "react";
+import Answer from "../../../components/Answer";
+import {QuizContext} from "../../../contexts/quiz";
 
-const QuestionVideo = (currentQuestion, quizState, dispatch) => {
-
-  const gestures = [
-    currentQuestion.correctGesture, currentQuestion.wrongGesture1,
-    currentQuestion.wrongGesture2, currentQuestion.wrongGesture3
-  ]
-
-
+const QuestionVideo = () => {
+  const [quizState, dispatch] = useContext(QuizContext);
+  const gestures = quizState?.answers;
+  const currentQuestion = quizState?.questions[quizState.currentQuestionIndex];
   return (
     <>
       <div className="question">
@@ -19,7 +16,7 @@ const QuestionVideo = (currentQuestion, quizState, dispatch) => {
           <div className="video">
             <video loop autoPlay height="400" isMuted={true}>
               <source
-                src={require("../../assets/" + "Gluh_1.MP4")} //TODO currentQuestion.correctGesture.uri
+                src={require("../../../assets/" + "Gluh_1.MP4")} //TODO currentQuestion.correctGesture.uri
                 type="video/ogg"
               />
               Your browser does not support the video tag.
@@ -28,12 +25,10 @@ const QuestionVideo = (currentQuestion, quizState, dispatch) => {
         </div>
         {gestures.map((gesture, index) => (
           <Answer
-            answerText={gesture.name}
-            key={index}
+            gesture={gesture}
+            QuestionAnswerType={currentQuestion?.questionType}
             index={index}
-            onSelectAnswer={(gesture) =>
-              dispatch({type: "SELECT_ANSWER", payload: gesture})
-            }
+            onSelectAnswer={() => dispatch({type: "SELECT_ANSWER", payload: gesture})}
           />
         ))}
       </div>

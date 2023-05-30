@@ -1,33 +1,42 @@
-import React, { createContext, useReducer } from "react";
-import { shuffleAnswers } from "../helperfunctions/shuffleAnswers";
+import React, {createContext, useReducer} from "react";
+import {shuffleAnswers} from "../helperfunctions/shuffleAnswers";
 
 const initialState = {
   questions: [],
   currentQuestionIndex: 0,
   correctAnswersCount: 0,
-  showResults: false,
+  isQuestionAnswered: false,
+  answeredQuestion: null,
+  showResults: false
 };
 
 const quizReducer = (state, action) => {
   switch (action.type) {
-    case 'UPDATE_QUESTIONS':
+    case 'INITIALIZE':
       const answers = shuffleAnswers(action.payload[state.currentQuestionIndex]);
       const correctAnswer = action.payload[state.currentQuestionIndex].correctGesture;
+
       return {
         ...state,
         questions: action.payload,
         answers,
         correctAnswer,
+        currentQuestionIndex: 0,
+        correctAnswersCount: 0,
+        isQuestionAnswered: false,
+        showResults: false
       };
     case "SELECT_ANSWER": {
       if (action.payload === state.correctAnswer) {
         return {
           ...state,
-          correctAnswersCount: state.correctAnswersCount + 1,
+          isQuestionAnswered: true,
+          answeredQuestion: action.payload,
+          correctAnswersCount: state.correctAnswersCount + 1
         };
       }
 
-      return state;
+      return {...state, isQuestionAnswered: true, answeredQuestion: action.payload};
     }
     case "NEXT_QUESTION": {
       const nextQuestionIndex = state.currentQuestionIndex + 1;
@@ -42,6 +51,8 @@ const quizReducer = (state, action) => {
         answers,
         correctAnswer,
         showResults,
+        isQuestionAnswered: false,
+        answeredQuestion: null
       };
     }
     case "RESTART": {
