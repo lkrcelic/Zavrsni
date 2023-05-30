@@ -15,12 +15,10 @@ const QuestionVideo = () => {
       </div>
       <div className="answers_video">
         <div className="video_container">
-          <div className="video">
             <video key={videoUri} loop autoPlay height="400" muted>
               <source src={require(`../../../assets/${videoUri}`)}  type="video/ogg"/>
               Your browser does not support the video tag.
             </video>
-          </div>
         </div>
         {gestures.map((gesture, index) => (
           <Answer

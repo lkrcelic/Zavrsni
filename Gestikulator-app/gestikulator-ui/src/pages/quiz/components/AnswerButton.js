@@ -2,8 +2,8 @@ import {styled} from "@mui/system";
 import {Button} from "@mui/material";
 
 export const AnswerButton = styled(Button)(({ theme}) => ({
-  width: 75,
-  height: 75,
+  width: 80,
+  height: 80,
   borderRadius: '50%',
   display: 'flex',
   flexDirection: 'column',
