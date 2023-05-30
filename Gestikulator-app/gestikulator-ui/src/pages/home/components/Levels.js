@@ -1,6 +1,6 @@
 import React from 'react';
 import {Grid, Typography} from '@mui/material';
-import {LevelCard, LevelsContainer} from '../styles';
+import {LevelCard, LevelsContainer} from './index';
 
 
 const Levels = ({levels, currentLevelId, onClick}) => {

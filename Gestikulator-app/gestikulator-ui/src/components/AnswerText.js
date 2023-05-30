@@ -1,14 +1,34 @@
-import React from "react";
+import {Typography} from '@mui/material';
+import {AnswerBox, AnswerButton} from "../pages/quiz/components";
 
-const AnswerText = ({answerText, answerClass, letterMapping, index, onSelectAnswer}) => {
+const AnswerText = ({
+                      answerText,
+                      isThisAnswerSelected,
+                      isQuestionAnswered,
+                      isCorrect,
+                      letterMapping,
+                      index,
+                      onSelectAnswer
+                    }) => {
+  const buttonColor = isThisAnswerSelected ? (isCorrect ? 'green' : 'red') : 'transparent';
 
   return (
-    <div className={`answer ${answerClass}`} onClick={() => onSelectAnswer()}>
-      <div className="answer-text-letter">{letterMapping[index]}</div>
-      <div className="answer-text">
-        <span>{answerText}</span>
-      </div>
-    </div>
+    <AnswerBox>
+      <AnswerButton
+        variant="outlined"
+        onClick={onSelectAnswer}
+        disabled={isQuestionAnswered}
+        style={{backgroundColor: buttonColor}}
+      >
+        <Typography variant="h3">
+          {letterMapping[index]}
+        </Typography>
+      </AnswerButton>
+      <Typography variant="h4">
+        {answerText}
+      </Typography>
+    </AnswerBox>
   );
 };
+
 export default AnswerText;

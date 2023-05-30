@@ -2,61 +2,39 @@ import * as Constants from "../constants/QuestionTypes.js";
 import AnswerVideo from "./AnswerVideo";
 import AnswerText from "./AnswerText";
 import AnswerCamera from "./AnswerCamera.js";
+import {QuizContext} from "../contexts/quiz";
+import {useContext} from "react";
 
-const Answer = ({
-                  answerText,
-                  QuestionAnswerType,
-                  index,
-                  onSelectAnswer,
-                  currentAnswer,
-                  correctAnswer,
-                  gestureName,
-                }) => {
+const Answer = ({gesture, QuestionAnswerType, index, onSelectAnswer}) => {
+  const [quizState] = useContext(QuizContext);
   const letterMapping = ["A", "B", "C", "D"]; // todo dodati u const
-  const isCorrectAnswer = currentAnswer && answerText === correctAnswer;
-  const isWrongAnswer =
-    currentAnswer === answerText && currentAnswer !== correctAnswer;
-  const correctAnswerClass = isCorrectAnswer ? "correct-answer" : "";
-  const wrongAnswerClass = isWrongAnswer ? "wrong-answer" : "";
-  const disabledClass = currentAnswer ? "disabled-answer" : "";
+  const answerText = gesture?.name;
 
-  if (QuestionAnswerType === Constants.QuestionTextAnswerVideo)
-    // todo pametnije rjesiti
-    return AnswerVideo(
-      correctAnswerClass,
-      wrongAnswerClass,
-      disabledClass,
-      letterMapping,
-      answerText,
-      index,
-      onSelectAnswer
-    );
+  const isCorrect = quizState.correctAnswer === gesture;
+  const isThisAnswerSelected = quizState.answeredQuestion === gesture;
+  const isQuestionAnswered = quizState.isQuestionAnswered;
 
-  if (
-    QuestionAnswerType === Constants.QuestionVideoAnswerText ||
-    QuestionAnswerType === Constants.QuestionTextAnswerText
-  ) {
-    return AnswerText(
-      correctAnswerClass,
-      wrongAnswerClass,
-      disabledClass,
-      letterMapping,
-      answerText,
-      index,
-      onSelectAnswer
-    );
-  }
-  if (QuestionAnswerType === Constants.QuestionTextAnswerCamera) {
-    return AnswerCamera(
-      correctAnswerClass,
-      wrongAnswerClass,
-      disabledClass,
-      letterMapping,
-      answerText,
-      index,
-      onSelectAnswer,
-      gestureName
-    );
+  const answerProps = {
+    answerText,
+    isCorrect,
+    isThisAnswerSelected,
+    isQuestionAnswered,
+    letterMapping,
+    index,
+    onSelectAnswer,
+  };
+
+  switch (QuestionAnswerType) {
+    case Constants.QuestionTextAnswerVideo:
+      return <AnswerVideo {...answerProps} />;
+    case Constants.QuestionVideoAnswerText: //TODO makuti nepotrebne caseove
+    case Constants.QuestionTextAnswerText:
+    case Constants.GUESS_GESTURE:
+      return <AnswerText {...answerProps} />;
+    case Constants.QuestionTextAnswerCamera:
+      return <AnswerCamera {...answerProps} />;
+    default:
+      return null;
   }
 };
 

@@ -1,5 +1,4 @@
 export const shuffleAnswers = (question) => {
-  console.log(question)
   if (!question) {
     return [];
   }
