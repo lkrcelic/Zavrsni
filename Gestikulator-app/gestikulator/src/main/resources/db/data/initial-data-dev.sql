@@ -15,22 +15,18 @@ VALUES ('Testna pod razina', 1),
        ('Četvrta pod razina', 3);
 
 INSERT INTO gesture(name, uri, description)
-VALUES ('Pozdrav', 'C:\put\gesta.mp4', 'gesta za pozdrav'),
-       ('Molim', 'C:\put\jos_puta\gestica.mp4', 'gesta za molim'),
-       ('Majmun', 'neki uri', 'gesta za majmuna'),
-       ('Gluh', 'neki uri', 'gesta za gluh'),
-       ('Godina', 'neki uri', 'gesta za godina'),
-       ('Ime', 'neki uri', 'gesta za ime'),
-       ('Ti', 'neki uri', 'gesta za ti');
+VALUES ('Gluh', 'Gluh_1.MP4', 'gesta za gluh'),
+       ('Godina', 'Godina_1.MP4', 'gesta za godinu'),
+       ('Ime', 'Ime_1.MP4', 'gesta za ime'),
+       ('Prezime', 'Prezime_1.MP4', 'gesta za prezime');
 
 INSERT INTO question(question_type, text, correct_gesture_id, wrong_gesture_id_1, wrong_gesture_id_2,
                      wrong_gesture_id_3, sub_level_id)
-VALUES ('GUESS_GESTURE', 'Odaberite gestu za pozdrav:', 1, 2, 3, 2, 1),
-       ('GUESS_PHRASE', 'Što predstavlja ova gesta:', 3, 1, 1, 2, 1),
-       ('GUESS_GESTURE', 'Odaberite gestu za molim:', 2, 3, 1, 1, 1),
-       ('GUESS_PHRASE', 'Koja je gesta prikazana:', 1, 3, 3, 3, 1),
-       ('GUESS_GESTURE', 'Odaberite gestu za gluh:', 4, 5, 6, 7, 1),
-       ('GUESS_GESTURE', 'Odaberite gestu za godina:', 5, 4, 6, 7, 1),
-       ('GUESS_GESTURE', 'Odaberite gestu za ime:', 6, 4, 5, 7, 1),
-       ('GUESS_GESTURE', 'Odaberite gestu za ti:', 7, 5, 6, 4, 1);
-
+VALUES ('GUESS_GESTURE', 'Koja je gesta prikazana', 1, 2, 3, 4, 1),
+       ('GUESS_GESTURE', 'Koja je gesta prikazana', 2, 1, 3, 4, 1),
+       ('GUESS_GESTURE', 'Koja je gesta prikazana', 3, 1, 2, 4, 1),
+       ('GUESS_GESTURE', 'Koja je gesta prikazana', 4, 1, 2, 3, 1),
+       ('GUESS_PHRASE', 'Odaberite gestu za gluh', 1, 2, 3, 4, 1),
+       ('GUESS_PHRASE', 'Odaberite gestu za godina', 2, 1, 3, 4, 1),
+       ('GUESS_PHRASE', 'Odaberite gestu za ime', 3, 1, 2, 4, 1),
+       ('GUESS_PHRASE', 'Odaberite gestu za prezime', 4, 1, 2, 3, 1);

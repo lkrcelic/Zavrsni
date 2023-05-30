@@ -32,14 +32,17 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     public List<QuestionDTO> getSubLevelQuestions(Long subLevelId) {
-        List<Question> subLevelGuessPhraseQuestions = questionRepository.getQuestionsBySubLevelIdAndQuestionType(subLevelId, QuestionType.GUESS_PHRASE);
-      //  List<Question> subLevelGuessGestureQuestions = questionRepository.getQuestionsBySubLevelIdAndQuestionType(subLevelId, QuestionType.GUESS_GESTURE);
+        List<Question> subLevelGuessPhraseQuestions =
+            questionRepository.getTwoRandomQuestionsBySubLevelIdAndQuestionType(subLevelId, QuestionType.GUESS_PHRASE.name());
+        List<Question> subLevelGuessGestureQuestions =
+            questionRepository.getTwoRandomQuestionsBySubLevelIdAndQuestionType(subLevelId, QuestionType.GUESS_GESTURE.name());
         List<Question> randomQuestionList = new ArrayList<>();
 
-        randomQuestionList.addAll(subLevelGuessPhraseQuestions.subList(0, 2));
-        //randomQuestionList.addAll(subLevelGuessGestureQuestions.subList(0, 2));
+        randomQuestionList.addAll(subLevelGuessPhraseQuestions);
+        randomQuestionList.addAll(subLevelGuessGestureQuestions);
 
-        return randomQuestionList.stream().map(question -> modelMapper.map(question, QuestionDTO.class)).collect(Collectors.toList());
+        return randomQuestionList.stream().map(question -> modelMapper.map(question, QuestionDTO.class))
+            .collect(Collectors.toList());
     }
 
     @Override

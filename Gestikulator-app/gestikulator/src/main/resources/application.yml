@@ -1,6 +1,6 @@
 spring:
   datasource:
-    driverClassName: org.postgresql.Driver
+    driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5433/gestikulatordb
     username: postgres
     password: bazepodataka
@@ -9,13 +9,17 @@ spring:
     change-log: classpath:/db/changelog/db.changelog-master.xml
     user: postgres
     password: bazepodataka
-    url: jdbc:postgresql://localhost:5433/gestikulatordb
+
+  liquibase.drop-first: true
 
   jpa:
     show-sql: true
     properties:
       hibernate:
         format_sql: true
+  sql:
+    init:
+      mode: always
 logging:
   level:
     org:

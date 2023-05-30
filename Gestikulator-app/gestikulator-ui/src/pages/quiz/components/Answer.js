@@ -9,13 +9,14 @@ const Answer = ({gesture, QuestionAnswerType, index, onSelectAnswer}) => {
   const [quizState] = useContext(QuizContext);
   const letterMapping = ["A", "B", "C", "D"]; // todo dodati u const
   const answerText = gesture?.name;
-
+  const answerUri = gesture?.uri;
   const isCorrect = quizState.correctAnswer === gesture;
   const isThisAnswerSelected = quizState.answeredQuestion === gesture;
   const isQuestionAnswered = quizState.isQuestionAnswered;
 
   const answerProps = {
     answerText,
+    answerUri,
     isCorrect,
     isThisAnswerSelected,
     isQuestionAnswered,
@@ -23,6 +24,7 @@ const Answer = ({gesture, QuestionAnswerType, index, onSelectAnswer}) => {
     index,
     onSelectAnswer,
   };
+
 
   switch (QuestionAnswerType) {
     case Constants.QuestionTextAnswerVideo:

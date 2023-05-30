@@ -11,6 +11,10 @@ import java.util.List;
 
 @Repository
 public interface QuestionRepository extends JpaRepository<Question, Long> {
-    List<Question> getQuestionsBySubLevelId(Long id);
-    List<Question> getQuestionsBySubLevelIdAndQuestionType(Long id, QuestionType questionType);
+
+    @Query(nativeQuery = true,
+        value = "SELECT * FROM question WHERE sub_level_id = :id AND question_type = :questionType ORDER BY RANDOM() LIMIT 2")
+    List<Question> getTwoRandomQuestionsBySubLevelIdAndQuestionType(@Param("id") Long id,
+        @Param("questionType") String questionType);
+
 }
