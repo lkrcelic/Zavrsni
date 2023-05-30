@@ -6,6 +6,8 @@ const QuestionVideo = () => {
   const [quizState, dispatch] = useContext(QuizContext);
   const gestures = quizState?.answers;
   const currentQuestion = quizState?.questions[quizState.currentQuestionIndex];
+  const videoUri = quizState.correctAnswer.uri;
+
   return (
     <>
       <div className="question">
@@ -14,9 +16,8 @@ const QuestionVideo = () => {
       <div className="answers_video">
         <div className="video_container">
           <div className="video">
-            <video loop autoPlay height="400" isMuted={true}>
-              //TODO currentQuestion.correctGesture.uri
-              <source src={require("../../../assets/" + "Gluh_1.MP4")}  type="video/ogg"/>
+            <video key={videoUri} loop autoPlay height="400" muted>
+              <source src={require(`../../../assets/${videoUri}`)}  type="video/ogg"/>
               Your browser does not support the video tag.
             </video>
           </div>
@@ -26,6 +27,7 @@ const QuestionVideo = () => {
             gesture={gesture}
             QuestionAnswerType={currentQuestion?.questionType}
             index={index}
+            key={index}
             onSelectAnswer={() => dispatch({type: "SELECT_ANSWER", payload: gesture})}
           />
         ))}

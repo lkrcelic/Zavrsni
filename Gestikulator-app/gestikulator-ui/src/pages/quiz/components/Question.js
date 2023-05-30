@@ -11,11 +11,11 @@ const Question = () => {
 
   switch (currentQuestion?.questionType) {
     case Constants.GUESS_GESTURE:
-      return QuestionVideo();
+      return <QuestionVideo/>
     case Constants.PERFORM_GESTURE:
       return QuestionCamera(currentQuestion, quizState, dispatch);
     case Constants.GUESS_PHRASE:
-      return QuestionText();
+      return <QuestionText/>;
     default:
       return <></>;
   }
