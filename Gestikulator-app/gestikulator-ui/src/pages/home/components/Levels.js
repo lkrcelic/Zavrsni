@@ -16,7 +16,8 @@ const Levels = ({levels, currentLevelId, onClick}) => {
             <Grid item key={index}>
               <LevelCard
                 onClick={() => onClick(level.id)}
-                isActive={currentLevelId === level.id}
+                active={currentLevelId === level.id}
+                key={index}
               >
                 <Typography variant="h4">{level.name}</Typography>
               </LevelCard>

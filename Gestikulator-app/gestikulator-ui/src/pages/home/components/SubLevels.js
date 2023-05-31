@@ -13,10 +13,9 @@ export default function SubLevels({subLevels, currentSubLevelId, setSelectedSubL
           {subLevels.map((subLevel, index) => (
             <Grid item key={index}>
               <LevelCard
-                onClick={() => {
-                  setSelectedSubLevelId(subLevel.id)
-                }}
-                isActive={currentSubLevelId === subLevel.id}
+                onClick={() => {setSelectedSubLevelId(subLevel.id)}}
+                active={currentSubLevelId === subLevel.id}
+                key={index}
               >
                 <Typography variant="h4">{subLevel.name}</Typography>
               </LevelCard>

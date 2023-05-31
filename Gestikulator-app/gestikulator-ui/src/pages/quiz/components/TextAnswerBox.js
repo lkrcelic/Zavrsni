@@ -5,8 +5,8 @@ export const TextAnswerBox = styled(Box)({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-start',
-  gap: '10px',
-  marginLeft: '50px',
+  gap: '20px',
+  marginLeft: '25% ',
 });
 
 

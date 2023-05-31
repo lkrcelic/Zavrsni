@@ -15,6 +15,7 @@ const Question = () => {
     case Constants.PERFORM_GESTURE:
       return QuestionCamera(currentQuestion, quizState, dispatch);
     case Constants.GUESS_PHRASE:
+    case Constants.GENERAL_KNOWLEDGE:
       return <QuestionText/>;
     default:
       return <></>;
