@@ -22,14 +22,6 @@ async function sendFramesToAPI(gestureName, results) {
     .catch(err => console.error(err))
 }
 
-const STATUS = {
-  STARTED: 'Started',
-  STOPPED: 'Stopped',
-}
-
-const INITIAL_COUNT = 3
-
-
 const AnswerCamera = (correctAnswerClass,
                       wrongAnswerClass,
                       disabledClass,
