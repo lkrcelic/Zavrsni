@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Answer from "./Answer";
+import {QuizContext} from "../../../contexts/quiz";
 
-const QuestionCamera = (currentQuestion, quizState, dispatch) => {
+const QuestionCamera = () => {
+  const [quizState, dispatch] = useContext(QuizContext);
+  const currentQuestion = quizState?.questions[quizState.currentQuestionIndex];
+
   return (
     <div>
-      <div className="question">{currentQuestion.question}</div>
+      <div className="question">{currentQuestion.text}</div>
       <div className="answers">
         <Answer
           answerText={quizState.answers}

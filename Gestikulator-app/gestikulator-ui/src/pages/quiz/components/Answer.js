@@ -7,24 +7,16 @@ import {useContext} from "react";
 
 const Answer = ({gesture, QuestionAnswerType, index, onSelectAnswer}) => {
   const [quizState] = useContext(QuizContext);
-  const letterMapping = ["A", "B", "C", "D"]; // todo dodati u const
-  const answerText = gesture?.name;
-  const answerUri = gesture?.uri;
-  const isCorrect = quizState.correctAnswer === gesture;
-  const isThisAnswerSelected = quizState.answeredQuestion === gesture;
-  const isQuestionAnswered = quizState.isQuestionAnswered;
-
   const answerProps = {
-    answerText,
-    answerUri,
-    isCorrect,
-    isThisAnswerSelected,
-    isQuestionAnswered,
-    letterMapping,
+    answerText: gesture?.name,
+    answerUri: gesture?.uri,
+    isCorrect: quizState.correctAnswer === gesture,
+    isThisAnswerSelected: quizState.answeredQuestion === gesture,
+    isQuestionAnswered: quizState.isQuestionAnswered,
+    letterMapping: ["A", "B", "C", "D"],
     index,
     onSelectAnswer,
   };
-
 
   switch (QuestionAnswerType) {
     case Constants.GUESS_PHRASE:
@@ -32,7 +24,7 @@ const Answer = ({gesture, QuestionAnswerType, index, onSelectAnswer}) => {
     case Constants.GENERAL_KNOWLEDGE:
     case Constants.GUESS_GESTURE:
       return <AnswerText {...answerProps} />;
-    case Constants.QuestionTextAnswerCamera:
+    case Constants.PERFORM_GESTURE:
       return <AnswerCamera {...answerProps} />;
     default:
       return null;
