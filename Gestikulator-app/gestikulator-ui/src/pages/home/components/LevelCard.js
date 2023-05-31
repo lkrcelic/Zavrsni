@@ -1,7 +1,7 @@
 import {styled} from "@mui/system";
 import {Button} from "@mui/material";
 
-export const LevelCard = styled(Button)(({ theme, isActive }) => ({
+export const LevelCard = styled(Button)(({theme, active}) => ({
   borderRadius: '40px',
   display: 'flex',
   flexDirection: 'column',
@@ -9,7 +9,7 @@ export const LevelCard = styled(Button)(({ theme, isActive }) => ({
   alignItems: 'center',
   padding: theme.spacing(2),
   boxShadow: theme.shadows[1],
-  border: isActive ? '5px solid black' : 'none', // Conditional border style
+  border: active ? '5px solid black' : 'none', // Conditional border style
 
   // Default styles for desktop
   height: '200px',

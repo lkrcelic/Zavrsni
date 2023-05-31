@@ -27,11 +27,9 @@ const Answer = ({gesture, QuestionAnswerType, index, onSelectAnswer}) => {
 
 
   switch (QuestionAnswerType) {
-    case Constants.QuestionTextAnswerVideo:
     case Constants.GUESS_PHRASE:
       return <AnswerVideo {...answerProps} />;
-    case Constants.QuestionVideoAnswerText: //TODO makuti nepotrebne caseove
-    case Constants.QuestionTextAnswerText:
+    case Constants.GENERAL_KNOWLEDGE:
     case Constants.GUESS_GESTURE:
       return <AnswerText {...answerProps} />;
     case Constants.QuestionTextAnswerCamera:

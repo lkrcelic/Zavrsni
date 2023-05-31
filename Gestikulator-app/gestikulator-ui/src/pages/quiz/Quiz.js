@@ -21,18 +21,23 @@ const Quiz = () => {
     async function fetchQuestions() {
       const questions = await getQuestionsBySubLevelId(1); //TODO ne hardcoded ID
       dispatch({type: 'INITIALIZE', payload: questions});
-      console.log(questions);
     }
 
     fetchQuestions();
   }, []);
 
   function endQuiz() {
+    dispatch({type: 'END_QUIZ'})
     navigate("/");
   }
 
   function nextQuestion() {
     dispatch({type: "NEXT_QUESTION"});
+  }
+
+
+  if(quizState.loading) {
+    return <div>Loading...</div>
   }
 
   return (

@@ -7,7 +7,7 @@ const initialState = {
   correctAnswersCount: 0,
   isQuestionAnswered: false,
   answeredQuestion: null,
-  showResults: false
+  showResults: false,
 };
 
 const quizReducer = (state, action) => {
@@ -21,10 +21,6 @@ const quizReducer = (state, action) => {
         questions: action.payload,
         answers,
         correctAnswer,
-        currentQuestionIndex: 0,
-        correctAnswersCount: 0,
-        isQuestionAnswered: false,
-        showResults: false
       };
     case "SELECT_ANSWER": {
       if (action.payload === state.correctAnswer) {
@@ -32,7 +28,7 @@ const quizReducer = (state, action) => {
           ...state,
           isQuestionAnswered: true,
           answeredQuestion: action.payload,
-          correctAnswersCount: state.correctAnswersCount + 1
+          correctAnswersCount: state.correctAnswersCount + 1,
         };
       }
 
@@ -52,10 +48,10 @@ const quizReducer = (state, action) => {
         correctAnswer,
         showResults,
         isQuestionAnswered: false,
-        answeredQuestion: null
+        answeredQuestion: null,
       };
     }
-    case "RESTART": {
+    case "END_QUIZ": {
       return initialState;
     }
     default:
