@@ -17,7 +17,7 @@ const Answer = ({gesture, QuestionAnswerType, index, onSelectAnswer}) => {
     index,
     onSelectAnswer,
   };
-
+  console.log(gesture, QuestionAnswerType, index, onSelectAnswer)
   switch (QuestionAnswerType) {
     case Constants.GUESS_PHRASE:
       return <AnswerVideo {...answerProps} />;

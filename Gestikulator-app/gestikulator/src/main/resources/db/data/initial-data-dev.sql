@@ -34,4 +34,5 @@ VALUES ('GUESS_GESTURE', 'Koja je gesta prikazana', 1, 2, 3, 4, 1),
        ('GUESS_PHRASE', 'Odaberite gestu za godina', 2, 1, 3, 4, 1),
        ('GUESS_PHRASE', 'Odaberite gestu za ime', 3, 1, 2, 4, 1),
        ('GUESS_PHRASE', 'Odaberite gestu za prezime', 4, 1, 2, 3, 1),
+       ('PERFORM_GESTURE', 'Izvedite gestu za gluh', 1, 2, 3, 4, 1),
        ('GENERAL_KNOWLEDGE', 'Jesu li hrvatski (HZJ) i američki (ASL) znakovni jezici jednaki?', 8, 5, 6, 7, 1);
