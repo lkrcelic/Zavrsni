@@ -211,6 +211,18 @@ div {
 
 /*QUIZ - QUESTION_VIDEO*/
 
+/*QUIZ - PREFORM_GESTURE*/
+.preform_gesture {
+    background: #FFC107;
+    min-height: 70%;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 15px;
+    gap: 70px 0px;
+}
+
+
 /*QUIZ - END*/
 .message_text {
     font-weight: 500;

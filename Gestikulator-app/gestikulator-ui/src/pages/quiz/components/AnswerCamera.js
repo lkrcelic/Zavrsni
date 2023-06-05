@@ -1,8 +1,10 @@
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Webcam from 'react-webcam';
 import axios from 'axios';
 import * as cam from '@mediapipe/camera_utils';
 import {Holistic} from '@mediapipe/holistic';
+import {Box, Typography} from "@mui/material";
+import Button from "@mui/material/Button";
 
 const sendFramesToAPI = async (gestureName, results) => {
   try {
@@ -100,7 +102,7 @@ const AnswerCamera = ({index, onSelectAnswer, answerText}) => {
     mediaRecorderRef.current.stop();
 
     const predictedGesture = await sendFramesToAPI(answerText, keyPointsList);
-      setIsAnswered(true);
+    setIsAnswered(true);
     if (predictedGesture === answerText) {
       //TODO onSelectAnswer treba dodati negjde
     }
@@ -113,43 +115,44 @@ const AnswerCamera = ({index, onSelectAnswer, answerText}) => {
   };
 
   return (
-    <div>
-      <center>
-        <div className="webcam">
-          <Webcam
-            ref={webcamRef}
-            style={{
-              position: 'fixed',
-              marginLeft: "auto",
-              marginRight: "auto",
-              left: 0,
-              right: 0,
-              textAlign: "center",
-              zindex: 9,
-              width: 640,
-              height: 480,
-              transform: "scaleX(-1)",
-            }}
-          />
-        </div>
-      </center>
-
-      <div style={{
-        position: 'fixed', display: "flex",
-        alignItems: "center",   backgroundColor: isAnswered ? 'green' : 'blue',
+    <div className="preform_gesture">
+      <Box sx={{
+        ml: 'auto',
+        mr: 'auto',
+        left: 0,
+        right: 0,
+        textAlign: 'center',
+        zIndex: 9,
+        width: 640,
+        height: 480,
+        transform: 'scaleX(-1)'
       }}>
+        <Webcam ref={webcamRef}/>
+      </Box>
+      <Box
+        sx={{display: 'flex', justifyContent: 'center', p: 2, gap: 2}}>
         {isCapturing ? (
-          <button className="record-button" onClick={handleStopCaptureClick}>Zaustavi snimanje</button>
+          <Button variant="contained" color="primary" onClick={handleStopCaptureClick}>
+            <Typography variant="h6">
+              Zaustavi snimanje
+            </Typography>
+          </Button>
         ) : (
-          <button className="record-button" onClick={handleStartCaptureClick}>Pokreni snimanje</button>
+          <Button variant="contained" color="primary" onClick={handleStartCaptureClick}>
+            <Typography variant="h6">
+              Pokreni snimanje
+            </Typography>
+          </Button>
         )}
-      </div>
-
-      <div>
-        <button className="skip-button" onClick={handleSkipClick}>Ne mogu sada</button>
-      </div>
+        <Button variant="contained" color="secondary" onClick={handleSkipClick}>
+          <Typography variant="h6">
+            Ne mogu sada
+          </Typography>
+        </Button>
+      </Box>
     </div>
-  );
+  )
+    ;
 }
 
 export default AnswerCamera;
