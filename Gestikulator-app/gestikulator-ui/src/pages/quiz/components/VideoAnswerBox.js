@@ -3,7 +3,7 @@ import {styled} from "@mui/system";
 
 export const VideoAnswerBox = styled(Box)(({theme}) => ({
   width: 'auto',
-  height: 180,
+  height: 150,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',

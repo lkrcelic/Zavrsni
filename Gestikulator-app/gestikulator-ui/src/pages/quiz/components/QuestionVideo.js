@@ -15,7 +15,7 @@ const QuestionVideo = () => {
       </div>
       <div className="answers_video">
         <div className="video_container">
-            <video key={videoUri} loop autoPlay height="400" muted>
+            <video key={videoUri} loop autoPlay height="300" muted>
               <source src={require(`../../../assets/${videoUri}`)}  type="video/ogg"/>
               Your browser does not support the video tag.
             </video>

@@ -1,7 +1,6 @@
 package hr.hsgn.gestikulator.repository;
 
 import hr.hsgn.gestikulator.entity.Question;
-import hr.hsgn.gestikulator.entity.QuestionType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,6 +17,5 @@ public interface QuestionRepository extends JpaRepository<Question, Long> {
         @Param("id") Long id,
         @Param("questionType") String questionType,
         @Param("limit") int limit);
-
 
 }

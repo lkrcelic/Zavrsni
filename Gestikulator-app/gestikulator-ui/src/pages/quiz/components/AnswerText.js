@@ -20,11 +20,11 @@ const AnswerText = ({
         disabled={isQuestionAnswered}
         style={{backgroundColor: buttonColor}}
       >
-        <Typography variant="h3">
+        <Typography variant="h4">
           {letterMapping[index]}
         </Typography>
       </AnswerButton>
-      <Typography variant="h4">
+      <Typography variant="h5">
         {answerText}
       </Typography>
     </TextAnswerBox>

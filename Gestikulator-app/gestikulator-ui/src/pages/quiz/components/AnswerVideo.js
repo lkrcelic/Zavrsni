@@ -22,7 +22,7 @@ const AnswerVideo = ({
         onClick={onSelectAnswer}
         disabled={isQuestionAnswered}
       >
-        <Typography variant="h3">
+        <Typography variant="h4">
           {letterMapping[index]}
         </Typography>
       </AnswerButton>

@@ -7,10 +7,10 @@ import {Box, Button, Typography} from "@mui/material";
 
 export default function QuizContent({ currentQuestionIndex, questionsLength, questionAnswered, nextQuestion }) {
   return (
-    <>
+    <div className="quiz">
       <div className="question-info">
         <button className="question_icon_first" data-for="HintTip">
-          <ImBell/>
+          <ImBell />
         </button>
         <ReactTooltip id="HintTip" place="top" effect="solid">
           Pola-Pola!
@@ -33,16 +33,16 @@ export default function QuizContent({ currentQuestionIndex, questionsLength, que
       </div>
       <div className="answers">
         <Question/>
+      </div>
         {questionAnswered && (
-          <Box sx={{ marginTop: 2, marginRight: 1,}}>
+          <Box className="next">
             <Button onClick={nextQuestion} variant="contained" color="info" sx={{ borderRadius: 50 }}>
-              <Typography variant="h6">
+              <Typography variant="body1">
                 Sljedeće pitanje
               </Typography>
             </Button>
           </Box>
         )}
-      </div>
-    </>
+    </div>
   );
 }
