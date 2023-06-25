@@ -9,19 +9,18 @@ export const LevelCard = styled(Button)(({theme, active}) => ({
   alignItems: 'center',
   padding: theme.spacing(2),
   boxShadow: theme.shadows[1],
-  border: active ? '5px solid black' : 'none', // Conditional border style
+  border: active ? '5px solid black' : 'none',
 
   // Default styles for desktop
   height: '200px',
   width: '200px',
 
-  // Styles for smaller screens (e.g., mobile devices)
   [theme.breakpoints.down('sm')]: {
     width: '100px',
     height: '100px',
   },
   "&.MuiButton-root": {
-    backgroundColor: '#4CAF50' // override in order to always keep this color
+    backgroundColor: '#4CAF50'
   },
 }));
 

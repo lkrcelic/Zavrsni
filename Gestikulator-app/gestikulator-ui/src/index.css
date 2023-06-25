@@ -31,15 +31,11 @@ div {
     position: relative;
     display: grid;
     width: 70vw;
-    height: 80vh;
     max-height: 1000px;
     max-width: 1800px;
-    margin: 0 auto;
-    margin-top: 40px;
     grid-auto-flow: column;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 0.1fr 0.2fr 1.2fr 1.2fr 0.3fr;
-    row-gap: 20px;
     grid-template-areas:
     "question-info question-info"
     "answers answers"
@@ -78,7 +74,7 @@ div {
     margin: 0px 30px;
     color: #121212;
     background-color: rgb(255, 255, 255, 0);
-    font-size: 35px;
+    font-size: 30px;
 }
 
 .question_icon_second {
@@ -86,7 +82,7 @@ div {
     right: 50px;
     color: #121212;
     background-color: rgb(255, 255, 255, 0);
-    font-size: 35px;
+    font-size: 30px;
 }
 
 /*QUIZ - QUESTION-INFO*/
@@ -97,9 +93,10 @@ div {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 700;
-    font-size: 36px;
-    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 28px;
+    margin-bottom: 15px;
+    margin-top: 10px;
 }
 
 /*QUIZ - QUESTION*/
@@ -169,11 +166,11 @@ div {
 /*QUIZ - QUESTION_VIDEO*/
 .answers_video {
     position: relative;
-    height: 70%;
     background: #FFC107;
     border-radius: 50px;
     display: grid;
     gap: 60px 0px;
+    padding: 60px 15px;
     grid-template-areas:
     "video_container answer answer"
     "video_container answer answer";
@@ -244,7 +241,7 @@ div {
 .next {
     grid-area: next;
     display: flex;
-    justify-content: right;
+    justify-content: left;
     align-items: center;
 }
 
@@ -530,7 +527,7 @@ button {
 }
 
 .logo {
-    height: 40px;
+    height: 30px;
     margin-right: 10px;
 }
 

@@ -1,10 +1,12 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useContext, useEffect, useRef, useState} from 'react';
 import Webcam from 'react-webcam';
 import axios from 'axios';
 import * as cam from '@mediapipe/camera_utils';
 import {Holistic} from '@mediapipe/holistic';
 import {Box, Typography} from "@mui/material";
 import Button from "@mui/material/Button";
+import {QuizContext} from "../../../contexts/quiz";
+import {getResult} from "../../../api/python/predictAPI";
 
 const sendFramesToAPI = async (gestureName, results) => {
   try {
@@ -22,9 +24,8 @@ const sendFramesToAPI = async (gestureName, results) => {
   }
 }
 
-const AnswerCamera = ({index, onSelectAnswer, answerText}) => {
+const AnswerCamera = ({answerText}) => {
   const webcamRef = useRef(null);
-  const canvasRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const [, setRecordedChunks] = useState([]);
   const [isAnswered, setIsAnswered] = useState(false);
@@ -32,10 +33,12 @@ const AnswerCamera = ({index, onSelectAnswer, answerText}) => {
   const [keyPointsList, setKeyPointsList] = useState([]);
   const [holistic, setHolistic] = useState(null);
 
+  const [, dispatch] = useContext(QuizContext);
 
   function onResults(results) {
-    console.log("on results")
     if (isCapturing) {
+      //console.log("on results")
+      //console.log(results); // Print the entire results object
       const defaultKeyPoints = (length, dimensions) => Array.from(Array(length), () => new Array(dimensions));
       const combinedList = [
         results.poseLandmarks || defaultKeyPoints(33, 4),
@@ -47,9 +50,8 @@ const AnswerCamera = ({index, onSelectAnswer, answerText}) => {
     }
   }
 
-  // Initialize Holistic instance
+  // Initialize Holistic instance adn start camera
   useEffect(() => {
-    console.log("Initialize Holistic instance")
     const instance = new Holistic({
       locateFile: (file) => {
         return `https://cdn.jsdelivr.net/npm/@mediapipe/holistic/${file}`;
@@ -61,26 +63,26 @@ const AnswerCamera = ({index, onSelectAnswer, answerText}) => {
       minTrackingConfidence: 0.5,
       selfieMode: true,
     });
-    instance.onResults(onResults);
 
-    setHolistic(instance);
-  }, []);
-
-
-// Start the camera
-  useEffect(() => {
-    console.log("Start the camera")
-
-    if (!holistic || !webcamRef.current) return;
+    if (!webcamRef.current) return;
     const camera = new cam.Camera(webcamRef.current.video, {
       onFrame: async () => {
-        await holistic.send({image: webcamRef.current.video});
+        await instance.send({image: webcamRef.current.video});
       },
       width: 640,
       height: 480,
     });
     camera.start();
-  }, [holistic]);
+
+    setHolistic(instance);
+  }, []);
+
+  //set onResult function
+  useEffect(() => {
+    if (holistic) {
+      holistic.onResults(onResults);
+    }
+  }, [isCapturing])
 
 
   // MediaRecorder
@@ -89,8 +91,11 @@ const AnswerCamera = ({index, onSelectAnswer, answerText}) => {
       setRecordedChunks(prevRecordedChunks => [...prevRecordedChunks, data]);
     }
   };
+
   const handleStartCaptureClick = () => {
     setIsCapturing(true);
+    console.log('Started capturing');  // <-- Add this line
+
     mediaRecorderRef.current = new MediaRecorder(webcamRef.current.stream, {
       mimeType: "video/webm"
     });
@@ -101,17 +106,19 @@ const AnswerCamera = ({index, onSelectAnswer, answerText}) => {
     setIsCapturing(false);
     mediaRecorderRef.current.stop();
 
-    const predictedGesture = await sendFramesToAPI(answerText, keyPointsList);
+    const predictedGesture = await getResult(answerText, keyPointsList);
+    console.log(keyPointsList)
     setIsAnswered(true);
     if (predictedGesture === answerText) {
       //TODO onSelectAnswer treba dodati negjde
+      console.log("tocno")
+    } else {
+      console.log("netocno")
     }
   };
 
   const handleSkipClick = () => {
-    // For now, just log a message to the console.
-    console.log('Skip button clicked!');
-    // Implement your desired functionality here.
+    dispatch({type: "NEXT_QUESTION"});
   };
 
   return (
