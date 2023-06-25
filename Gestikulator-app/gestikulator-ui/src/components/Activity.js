@@ -13,6 +13,7 @@ export default function Activity(props) {
       <ListItemButton
         disableTouchRipple
         sx={{
+          display:"flex",
           backgroundColor: "white",
           borderRadius: "16px",
           paddingLeft: "25px",
@@ -22,12 +23,12 @@ export default function Activity(props) {
           primaryTypographyProps={{
             color: "#121212",
             fontWeight: 500,
-            fontSize: "18px",
+            fontSize: "16px",
             fontFamily: "inherit",
           }}
           primary={activity.name}
         />
-        <ListItemIcon sx={{color: "#121212"}}>{activity.icon}</ListItemIcon>
+        <ListItemIcon sx={{justifyContent: "flex-end", color: "#121212"}}>{activity.icon}</ListItemIcon>
       </ListItemButton>
     </ListItem>
   ));
@@ -48,9 +49,18 @@ export default function Activity(props) {
           height: "75%",
           width: "90%",
           bgcolor: "#4CAF50",
-          overflow: "scroll",
+          overflowY: 'scroll',
           boxShadow: 1,
           borderRadius: "10px",
+          '&::-webkit-scrollbar': {
+            width: '8px',
+            borderRadius: '4px',
+            backgroundColor: 'rgba(0, 0, 0, 0.1)',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            borderRadius: '4px',
+            backgroundColor: 'rgba(0, 0, 0, 0.4)',
+          },
         }}
       >
         <nav
