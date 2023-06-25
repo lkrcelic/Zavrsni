@@ -46,10 +46,10 @@ public class QuestionServiceImpl implements QuestionService {
                 QuestionType.PERFORM_GESTURE.name(), 1);
         List<Question> randomQuestionList = new ArrayList<>();
 
-        randomQuestionList.addAll(subLevelGuessPhraseQuestions);
-        randomQuestionList.addAll(subLevelGuessGestureQuestions);
-        randomQuestionList.addAll(subLevelGeneralKnowledgeQuestions);
-        //randomQuestionList.addAll(subLevelPreformGestureQuestions);
+        //randomQuestionList.addAll(subLevelGuessPhraseQuestions);
+        //randomQuestionList.addAll(subLevelGuessGestureQuestions);
+        //randomQuestionList.addAll(subLevelGeneralKnowledgeQuestions);
+        randomQuestionList.addAll(subLevelPreformGestureQuestions);
 
         return randomQuestionList.stream().map(question -> modelMapper.map(question, QuestionDTO.class))
             .collect(Collectors.toList());

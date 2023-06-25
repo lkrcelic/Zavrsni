@@ -4,7 +4,7 @@ import {Box} from '@mui/material';
 export const LevelsContainer = styled(Box)(({theme}) => ({
   backgroundColor: theme.palette.secondary.lighterVariant3,
   borderRadius: '42px',
-  padding: theme.spacing(4),
+  padding: theme.spacing(3),
   margin: theme.spacing(2, 0),
   overflowX: 'auto',
   display: 'flex',

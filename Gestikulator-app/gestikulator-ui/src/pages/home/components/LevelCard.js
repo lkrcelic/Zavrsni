@@ -12,8 +12,8 @@ export const LevelCard = styled(Button)(({theme, active}) => ({
   border: active ? '5px solid black' : 'none',
 
   // Default styles for desktop
-  height: '200px',
-  width: '200px',
+  height: '160px',
+  width: '160px',
 
   [theme.breakpoints.down('sm')]: {
     width: '100px',

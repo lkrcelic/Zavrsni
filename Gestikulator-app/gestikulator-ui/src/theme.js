@@ -34,22 +34,26 @@ const typography = {
   ].join(','),
   h4: {
     fontWeight: "bold",
-    fontSize: 24,
+    fontSize: 20,
     color: palette.text.primary,
     lineHeight: "1.2",
     fontFamily: "inherit",
   },
   h3: {
     color: palette.text.primary,
+    fontSize: 36,
+    fontWeight: "500"
+
   },
   h5: {
     color: palette.text.primary,
   },
   h6: {
+    fontSize: 16,
     color: palette.text.primary,
     lineHeight: "1.8",
     fontFamily: "inherit",
-    fontWeight: "bold",
+    fontWeight: "500"
   }
 };
 

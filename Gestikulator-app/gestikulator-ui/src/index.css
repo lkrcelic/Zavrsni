@@ -103,11 +103,8 @@ div {
 
 /*QUIZ - ?*/
 .results {
-    position: absolute;
-    width: 800px;
-    height: 350px;
-    top: 30%;
-    left: 19%;
+    position: relative;
+    padding: 40px 200px;
     background-color: #FFC107;
     border-radius: 50px;
     text-align: center;
@@ -211,12 +208,10 @@ div {
 /*QUIZ - PREFORM_GESTURE*/
 .preform_gesture {
     background: #FFC107;
-    min-height: 70%;
     border-radius: 50px;
     display: flex;
     flex-direction: column;
-    padding: 60px 15px;
-    gap: 70px 0px;
+    padding-top: 20px;
 }
 
 
@@ -278,7 +273,7 @@ div {
 
 .container {
     position: relative;
-    height: 85vh;
+    height: calc(85vh - 60px);
     width: 80vw;
     max-height: 1000px;
     max-width: 1800px;

@@ -11,7 +11,7 @@ const Levels = ({levels, currentLevelId, onClick}) => {
         Odaberi razinu
       </Typography>
       <LevelsContainer>
-        <Grid wrap={"nowrap"} container justifyContent="flex-start" spacing={4}>
+        <Grid wrap={"nowrap"} container justifyContent="flex-start" spacing={3} >
           {levels.map((level, index) => (
             <Grid item key={index}>
               <LevelCard
