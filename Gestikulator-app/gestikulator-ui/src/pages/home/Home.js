@@ -139,7 +139,6 @@ const Home = () => {
           setSelectedSubLevelId={setSelectedSubLevelIdId}
         />
       </div>
-
       <div class="start-button">
         <Button disabled={!selectedSubLevelId} onClick={handleOnStartClick}>
           Kreni
@@ -150,7 +149,6 @@ const Home = () => {
         <button
           className="button-default"
           onClick={toggleFunFact}
-          style={{position: "absolute", top: "35px", right: "150px"}}
         >Zanimljivost Dana <TipsAndUpdatesIcon/>
         </button>
         <FunFact
@@ -158,7 +156,6 @@ const Home = () => {
           hide={toggleFunFact}
         />
         <button
-          style={{position: "absolute", top: "35px", right: "15px"}}
           className="button-default"
           onClick={toggle1}
         >

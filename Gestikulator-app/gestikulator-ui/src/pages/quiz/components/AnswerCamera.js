@@ -28,7 +28,6 @@ const AnswerCamera = ({answerText}) => {
   const webcamRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const [, setRecordedChunks] = useState([]);
-  const [isAnswered, setIsAnswered] = useState(false);
   const [isCapturing, setIsCapturing] = useState(false);
   const [keyPointsList, setKeyPointsList] = useState([]);
   const [holistic, setHolistic] = useState(null);
@@ -69,8 +68,8 @@ const AnswerCamera = ({answerText}) => {
       onFrame: async () => {
         await instance.send({image: webcamRef.current.video});
       },
-      width: 640,
-      height: 480,
+      width: 520, //640
+      height: 360, //480
     });
     camera.start();
 
@@ -107,18 +106,15 @@ const AnswerCamera = ({answerText}) => {
     mediaRecorderRef.current.stop();
 
     const predictedGesture = await getResult(answerText, keyPointsList);
-    console.log(keyPointsList)
-    setIsAnswered(true);
+    dispatch({type: "SELECT_ANSWER"});
     if (predictedGesture === answerText) {
       //TODO onSelectAnswer treba dodati negjde
       console.log("tocno")
-    } else {
-      console.log("netocno")
     }
   };
 
   const handleSkipClick = () => {
-    dispatch({type: "NEXT_QUESTION"});
+    dispatch({type: "SELECT_ANSWER"});
   };
 
   return (
@@ -130,8 +126,6 @@ const AnswerCamera = ({answerText}) => {
         right: 0,
         textAlign: 'center',
         zIndex: 9,
-        width: 640,
-        height: 480,
         transform: 'scaleX(-1)'
       }}>
         <Webcam ref={webcamRef}/>
@@ -145,7 +139,7 @@ const AnswerCamera = ({answerText}) => {
             </Typography>
           </Button>
         ) : (
-          <Button variant="contained" color="primary" onClick={handleStartCaptureClick}>
+          <Button  variant="contained" color="primary" onClick={handleStartCaptureClick}>
             <Typography variant="h6">
               Pokreni snimanje
             </Typography>
